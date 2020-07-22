@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        .completed {
+            text-decoration: line-through
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container my-3">
+        <button id="get" class="btn btn-outline-primary">Get</button>
+        <button id="post" class="btn btn-outline-primary">Post</button>
+        <button id="patch" class="btn btn-outline-primary">Patch</button>
+        <button id="delete" class="btn btn-outline-primary">Delete</button>
+    </div>
+    <script>
+
+        document.querySelector('#get').addEventListener('click', getData);
+        document.querySelector('#post').addEventListener('click', postData);
+        document.querySelector('#patch').addEventListener('click', patchData);
+        document.querySelector('#delete').addEventListener('click', deleteData);
+
+
+        var uuid = 'ba9527ec-3526-490c-9434-1abb4e19486f';
+        var token = 'OYbfF8wZ9W5HHIhYaZaO1qJfxj1iOVAN4821WiVRG6TTNDXn1vJ73RV0tQCe';
+        var apiPath = 'https://course-ec-api.hexschool.io/';
+
+        var sampleData = {
+            title: 'THE TRAGEDY OF LORD GEORGE',
+            category: 'BEST SELLERS',
+            description: 'FRAGRANCE FAMILY: FOUGÈRE',
+            content: 'Do come in, I’m sure we’ve met before... Noble patriarch, paragon of masculine elegance, Lord George welcomes with a scent of shaving soap and warming rum. But what secrets hide behind tradition?',
+            imageUrl: [
+                'https://www.penhaligons.com/medias/sys_master/images/images/hbc/hbc/9050316177438/9050316177438.png'
+            ],
+            enabled: true,
+            origin_price: 278,
+            price: 269,
+            unit: 'QTY',
+        }
+
+        axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+        // axios 設定說明：https://github.com/axios/axios#config-defaults
+
+        function getData() {
+            console.log('getData');
+            var api = `${apiPath}api/${uuid}/admin/ec/products`;
+            console.log(api);
+            axios.get(api)
+                .then(function (res) {
+                    console.log(res);
+                });
+        }
+
+        function postData() {
+            console.log('postData');
+            var api = `${apiPath}api/${uuid}/admin/ec/product`;
+            var data = {
+                title: 'CLANDESTINE CLARA',
+                category: 'LADIES',
+                description: 'FRAGRANCE FAMILY: ORIENTAL',
+                content: 'Clara is a true gourmand, spicy and sweet in equal measure. Her scent tells a tale of exotic travel: rhum vanilla, cinnamon musk, ambery patchouli. Completely delectable (as Lord George knows well).',
+                imageUrl: [
+                    'https://www.penhaligons.com/medias/sys_master/images/images/h26/h6f/9050294976542/9050294976542.jpg'
+                ],
+                enabled: true,
+                origin_price: 278,
+                price: 265,
+                unit: 'QTY',
+            }
+            console.log(api);
+            axios.post(api, data)
+                .then(function (res) {
+                    console.log(res);
+                });
+        }
+
+        function patchData() {
+            console.log('patchData');
+            var api = `${apiPath}api/${uuid}/admin/ec/product/"aXjPPh5318mgU0xg6WllxqDoFmmcBSrkluU7394F8KT9Rg89vuGytQpSMsU4L3Hy"`;
+            var data = {
+                title: 'THE IMPUDENT COUSIN MATTHEW',
+                category: 'GENTS',
+                description: 'FRAGRANCE FAMILY: CITRUS',
+                content: "Matthew is never far from trouble-the naughty to his sister's nice. His eau de parfum reveals an unexpected pedigree, as fresh, sparkling mandarin strides gallantly forth from woody depths.",
+                imageUrl: [
+                    'https://www.penhaligons.com/medias/sys_master/images/images/h3e/h55/9077689286686/PORTRAITS-COUSIN-MATTHEW-EDP-75ML-5056245000942-PRODUCT-01.jpg'
+                ],
+                enabled: true,
+                origin_price: 278,
+                price: 265,
+                unit: 'QTY',
+            }
+            console.log(api);
+            axios.patch(api, data)
+                .then(function (res) {
+                    console.log(res);
+                });
+        }
+
+        function deleteData() {
+            console.log('deleteData');
+            var api = `${apiPath}api/${uuid}/admin/ec/product/aXjPPh5318mgU0xg6WllxqDoFmmcBSrkluU7394F8KT9Rg89vuGytQpSMsU4L3Hy`;
+            console.log(api);
+            axios.delete(api)
+                .then(function (res) {
+                    console.log(res);
+                });
+
+        }
+
+    </script>
+</body>
+
+</html>

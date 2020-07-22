@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+
+<body>
+    <!-- 需實體化才能運作 -->
+    <div id="app">
+        ES6 適用樣板字面值<br>
+        但是vue直接使用 {{ text }} 就可以達到效果
+    </div>
+    <script>
+        // 關注點分離是這樣寫的:1.資料，2.方法，3.初始化、生命週期、render
+        var obj = {
+            data: '小明',
+            getData() {
+                console.log('取得資料', this.data);
+            },
+            render() {
+                console.log('繪製畫面');
+            }
+        }
+        obj.getData(); //取得小明
+
+        var app = new Vue({ //new匯出vue藍圖 + 建構參數: data資料、methods方法、created生命週期
+            el: '#app', //用el綁定目標，實體化在目標上
+            //可以綁兩個目標，但是我們幾乎不這樣做
+            data: {
+                //data必須是物件
+                text: '我是小明',
+
+            },
+            methods: {
+                //methods必須是物件
+                getData() {
+
+                }
+
+
+            },
+            created() { //函式宣告縮寫
+                //created必須是函式
+                console.log(this.text, this.data.methods);
+                // 在vue建環境的時候，他會將資料、方法都丟到第一層，
+                // 所以text、getData都會在第一層，就不需要使用this.data.methods了
+                // methods、data只是方便管理而已
+
+            }
+        });
+    </script>
+</body>
+
+</html>
