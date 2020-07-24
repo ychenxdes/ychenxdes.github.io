@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <!-- 需實體化才能運作 -->
+        <div id="app">
+            ES6 適用樣板字面值<br />
+            但是vue直接使用 {{ text }} 就可以達到效果
+            <button type="button" v-on:click="updateItem">按我</button>
+            <button type="button" @click="updateItem">按我</button>
+            <!-- v-on:click、@click-->
+            {{ text }}
+            <input type="text" v-model="text" />
+            <!-- 只有v-model語法是用來寫入，其餘是渲染 -->
+            <!-- v-model用途:文字輸入在input上，會直接反饋在{{text}}裡面 -->
+
+            <ul>
+                <!-- v-for就帶 key，請帶入不同值  -->
+                <!-- :key="key" key直接帶key可能會有雷，所以最好的方式是帶id  key -> id-->
+                <!-- 如果陣列沒有key，還是建議一定要帶，拿物件裡有的東西，或是+個值，是為了增加穩定度 -->
+                <!-- 如果沒有打key，當項目更動時，會出現：不會跟著跑的情況，可以看week3老師檔案範例:vue-init-q7.html-->
+                <!-- key需要唯一值，也可以是中文 -->
+                <li v-for="(item, key) in list" :data-id="key" :key="item.name + 1 ">
+                    <!-- :data-id="key" 裡面可以放入js表達式 -->
+                    <!-- 也可以帶隨機的文字 例如: +1 -->
+                    {{ item.name }} {{key }}
+                </li>
+            </ul>
+
+            <!-- v-bind, :動態屬性 -->
+            <!-- v-bind:src 或是縮寫 :src -->
+            <img :src="imgUrl" alt="" />
+
+            <!-- v-on:click="..." 縮寫 @click="..." -->
+            <button type="button" v-on:click="updateItem">事件觸發</button>
+        </div>
+        <script>
+            // 關注點分離是這樣寫的:1.資料，2.方法，3.初始化、生命週期、render
+            // var obj = {
+            //     data: '小明',
+            //     getData() {
+            //         console.log('取得資料', this.data);
+            //     },
+            //     render() {
+            //         console.log('繪製畫面');
+            //     }
+            // }
+            // obj.getData(); //取得小明
+
+            // js觸發方法方式: btn.addEventListener('click',function({...})
+            var app = new Vue({
+                //new匯出vue藍圖 + 建構參數: data資料、methods方法、created生命週期
+                el: "#app", //用el綁定目標，實體化在目標上
+                //可以綁兩個目標，但是我們幾乎不這樣做
+                data: {
+                    //data必須是物件
+                    text: "我是小明",
+                    item: {
+                        //雙向綁定，需要先定義一個資料
+                        // text: ''
+                    },
+                    list: [{ name: "小明" }, { name: "杰倫" }],
+                    imgUrl: "http://",
+                },
+                methods: {
+                    //methods必須是物件(集合)
+                    updateItem() {
+                        // this.item.text = '我是漂亮阿姨';
+                        // 當資料沒有先定義的時候，只能使用:強制雙向綁定。
+                        // 強制雙向綁定意思是這邊的值會渲染到畫面上，不僅僅只出現在console裡面
+                        // vue只能渲染data裡的資料
+                        // this.$set(目標, 屬性, 值);
+                        // this.$set(this.item, 'text', '我是漂亮阿姨');
+                        //需要出現 get text、set text 才代表成功渲染
+
+                        console.log("123");
+                    },
+                },
+                created() {
+                    //函式宣告縮寫
+                    //created必須是函式
+                    console.log(this.text, this.data.methods);
+                    // 在vue建環境的時候，他會將資料、方法都丟到第一層，
+                    // 所以text、getData都會在第一層，就不需要使用this.data.methods了
+                    // methods、data只是方便管理而已
+                },
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!-- 
+    https://www.haoshi.com.tw/en/all.php
+    https://www.penhaligons.com/us/en/categories/fragrances/best-sellers/tragedy-lord-george-000000000065121092
+ -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <style>
+            .completed {
+                text-decoration: line-through;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" class="container my-3">
+            <button id="get" class="btn btn-outline-primary">Get</button>
+            <button id="post" class="btn btn-outline-primary">Post</button>
+            <button id="patch" class="btn btn-outline-primary">Patch</button>
+            <button id="delete" class="btn btn-outline-primary">Delete</button>
+        </div>
+        <script>
+            document.querySelector("#get").addEventListener("click", getData);
+            document.querySelector("#post").addEventListener("click", postData);
+            document.querySelector("#patch").addEventListener("click", patchData);
+            document.querySelector("#delete").addEventListener("click", deleteData);
+
+            var uuid = "ba9527ec-3526-490c-9434-1abb4e19486f"; //固定的
+            var token = "OYbfF8wZ9W5HHIhYaZaO1qJfxj1iOVAN4821WiVRG6TTNDXn1vJ73RV0tQCe"; //驗證用，會不斷變更
+            var apiPath = "https://course-ec-api.hexschool.io/";
+
+            var sampleData = {
+                //前面五項是必填（因為資料庫設定）
+                title: "好茶",
+                category: "tea",
+                content: "內容",
+                description: "",
+                imageUrl: [
+                    "https://images.unsplash.com/photo-1587918515749-a2a68b40a124?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                ],
+                enabled: true,
+                origin_price: 100,
+                price: 90,
+                unit: "杯",
+            };
+
+            axios.defaults.headers["Authorization"] = `Bearer ${token}`;
+            // axios 設定說明：https://github.com/axios/axios#config-defaults
+
+            function getData() {
+                console.log("getData");
+                var api = `${apiPath}api/${uuid}/admin/ec/products`;
+                console.log(api);
+                axios.get(api).then(function (res) {
+                    console.log(res);
+                    //因為我們是取的後端的產品資料，所以需要經過驗證
+                });
+            }
+
+            function postData() {
+                console.log("postData");
+                var api = `${apiPath}api/${uuid}/admin/ec/product`;
+                var data = {
+                    title: "THE TRAGEDY OF LORD GEORGE",
+                    category: "BEST SELLERS",
+                    content:
+                        "Do come in, I’m sure we’ve met before... Noble patriarch, paragon of masculine elegance, Lord George welcomes with a scent of shaving soap and warming rum. But what secrets hide behind tradition?",
+                    description: "FRAGRANCE FAMILY: FOUGÈRE",
+                    imageUrl: [
+                        "https://www.penhaligons.com/medias/sys_master/images/images/h99/h7e/9050315980830/9050315980830.jpg",
+                    ],
+                    enabled: true,
+                    origin_price: 278,
+                    price: 255,
+                    unit: "瓶",
+                };
+                console.log(api);
+                axios.post(api, data).then(function (res) {
+                    console.log(res);
+                });
+            }
+
+            function patchData() {
+                console.log("patchData");
+                var api = `${apiPath}api/${uuid}/admin/ec/product/W6uTscBnuZn45N3gPez26o9kMcL86ufY5dUxUmDdPLHOzeVuRlZq6fpPNJvFFmyf`;
+                var data = {
+                    title: "THE UNCOMPROMISING SOHAN",
+                    category: "GENTS",
+                    content: "Fragrant pepper rose, vetiver and oud from this wily merchant’s ledger.",
+                    description: "FRAGRANCE FAMILY: WOODY",
+                    imageUrl: [
+                        "https://www.penhaligons.com/medias/sys_master/images/images/h13/h5f/9050289209374/9050289209374.jpg",
+                    ],
+                    enabled: true,
+                    origin_price: 278,
+                    price: 265,
+                    unit: "75ml",
+                };
+                console.log(api);
+                axios.patch(api, data).then(function (res) {
+                    console.log(res);
+                });
+            }
+
+            function deleteData() {
+                console.log("deleteData");
+                var api = `${apiPath}api/${uuid}/admin/ec/product/rdeU4pzmAzaUXdiO7XLHLcKaScgnc2N59dArSHU7GSsTh6Bt3civ8US67yKQddhj`;
+                console.log(api);
+                axios.delete(api).then(function (res) {
+                    console.log(res);
+                });
+            }
+        </script>
+    </body>
+</html>
