@@ -1,24 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    </head>
-    <body>
-        <div id="app">
-            <input type="text" :value="text" />
-            {{ text }}
-            <input type="button" @click="" />
-        </div>
-        <script>
-            var app = new Vue({
-                el: "#app",
-                data: {},
-                methods: {},
-                created() {},
-            });
-        </script>
-    </body>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{ text }}
+        <input type="text" v-moduel="tempText" />
+        <button type="button" @click="newItem" />新增</button>
+        <ul>
+            <li v-for="item in list" :key="item.id">
+                {{item.content}}
+                <button type="button" @click="removeData(item.id)">刪除</button>
+                <button type="button" @click="edit(item)">編輯</button>
+                <!-- 按下編輯後，需要經過下方的確認，才能修改這筆資料 -->
+            </li>
+        </ul>
+        <hr>
+        更新資料
+        <input type="text"><button type="button">確認更新</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                text: '小明的筆記本',
+                tempText: '',
+                list: [
+                    {
+                        id: 1,
+                        content: '一些內容'
+                    },
+                    {
+                        id: 2,
+                        content: '第二筆內容'
+                    }
+                ]
+            },
+            methods: {
+                edit() {
+
+                },
+                newItem() {
+                    var time = (new Data()).getTime(); //取 unix時間
+                    var newData = {
+                        id: time,
+                        content: this.tempText
+                    }
+                    console.log(newData);
+                    this.list.push(newData);
+                    this.tempText = ''; //再把資料清空
+
+                },
+                removeData(id) {
+                    //當然這種刪除方式無法刪除遠端資料的，只能刪除本地端而已
+                    var i;
+                    this.list.forEach((item, key) => {
+                        if (item.id == id) { //傳進來id去做比對
+                            i = key;
+                        }
+                    });
+                    console.log(i);
+                    this.list.splice(i, 1); //刪除一個
+                }
+            },
+            created() { },
+        });
+    </script>
+</body>
+
 </html>
