@@ -23,7 +23,7 @@
         </ul>
         <hr>
         更新資料
-        <input type="text"><button type="button">確認更新</button>
+        <input type="text" v-model="tempData.content"><button type="button">確認更新</button>
     </div>
     <script>
         var app = new Vue({
@@ -31,6 +31,7 @@
             data: {
                 text: '小明的筆記本',
                 tempText: '',
+                tempData: '',
                 list: [
                     {
                         id: 1,
@@ -43,8 +44,8 @@
                 ]
             },
             methods: {
-                edit() {
-
+                edit(item) {
+                    this.tempData = item; 
                 },
                 newItem() {
                     var time = (new Data()).getTime(); //取 unix時間

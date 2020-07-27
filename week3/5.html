@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            var person = {
+                name: "小明",
+                obj: {},
+            };
+            var person2 = person;
+            // 只要看到{} , [] 都會產生一個新的參考路徑
+            // function, {}, [] 都是傳參考
+
+            //淺拷貝深拷貝
+            //淺拷貝： assign({空物件} , 要插入的物件)
+
+            var person2 = Object.assign({}, person);
+            console.log(person === person2); //false
+
+            //深拷貝先把它轉成純文字，再轉成物件
+            JSON.parse(JSON.stringify(person));
+            console.log(JSON.parse(JSON.stringify(person)));
+
+            // 如果不想分深淺，可以只只用JSON.parse 一律深層複製就好
+        </script>
+    </body>
+</html>
