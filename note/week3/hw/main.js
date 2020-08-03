@@ -35,28 +35,29 @@ new Vue({
     },
     methods: {
         // 更新產品
-        updateData() {
+        updateProduct() {
             // 判斷是否現有id
             if (this.tempProduct.id) {
                 const id = this.tempProduct.id;
                 // 有id的話，比對是哪一則，做修改
-                this.products.forEach(function (item, i) {
-                    if (this.products.id === id) {
-                        this.product[i] = this.tempProduct;
+                this.products.forEach((item, i) => {
+                    if (item.id === id) {
+                        this.products[i] = this.tempProduct;
                     }
                 });
             } else {
                 // 新產品，產生id
-                const id = new Data().getTime();
+                const id = new Date().getTime();
                 // 將id指給 this.tempProduct
                 this.tempProduct.id = id;
                 this.products.push(this.tempProduct);
             }
-            // ???
+            // 淺拷貝
             this.tempProduct = {};
             // 關閉Modal
             $("#productModal").modal("hide");
         },
+
         // 判斷情況，打開Modal
         openModal(isNew, item) {
             // 建立新產品，使用switch迴圈判斷 isNew的值，去辨別執行項目
@@ -81,10 +82,11 @@ new Vue({
             }
         },
         // 刪除產品
-        deleteProduct() {
+        delProduct() {
             if (this.tempProduct.id) {
                 const id = this.tempProduct.id;
-                this.products.forEach(function (item, i) {
+                //function為什麼不能這樣寫?
+                this.products.forEach((item, i) => {
                     if (item.id === id) {
                         this.products.splice(i, 1);
                         this.tempProduct = {};
@@ -95,3 +97,4 @@ new Vue({
         },
     },
 });
+
