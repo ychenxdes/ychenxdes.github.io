@@ -10,41 +10,36 @@
 
 <body>
     <div id="app">
-        <div is="card">
-
-        </div>
+        <card v-bind:outer="img"></card>
+        <!-- 縮寫 -->
+        <!-- <card :outer="img"></card> -->
     </div>
 
-    <script type="text/x-template" id="forCard">
 
-            <h5> {{ text }}</h5>
-            <h5> {{ text2 }}</h5>
-        
+    <script type="text/x-template" id="forCard">
+        <!-- +span也可以拉 -->
+    <div>
+        {{ data }}
+    </div>
     </script>
-    <script>
-        //就算是全域也需要用var app = new Vue({...});
+
+    <script type="module">
+
         Vue.component('card', {
+            props: ['outer'],
             template: '#forCard',
-            //正確寫法
-            // data: function () {
-            //     return {
-            //         text: '123',
-            //         text2: '456',
-            //     }
-            // }
-            //簡寫
             data() {
                 return {
-                    text: '123',
-                    text2: '456',
+                    data: '這是一句話',
                 }
-            }
+            },
         });
 
-        //還是需要這東西，
         var app = new Vue({
             el: '#app',
             data: {
+                text: '外層文字',
+                img: 'https://images.unsplash.com/photo-1593642634443-44adaa06623a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
 
             }
         });

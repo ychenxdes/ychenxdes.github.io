@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module">
+
+    </script>
+    <style>
+        .completed {
+            text-decoration: line-through
+        }
+    </style>
+    <title>twoWeek</title>
+</head>
+<body>
+<div class="container">
+    <h2>產品列表</h2>
+    <div id="app" class="card-columns">
+    </div>
+</div>
+<script>
+    var obj = {
+        data: {
+            products: [],
+            uuid : 'bf08608e-9fff-45e3-b8e3-3c9e8e1b9da0',
+            token : 'el7r8z2CluTB08awDgRsvP2NEi02wLH4EicbqKf2CRLFKbVJrLZnNboPdzlX',
+            apiPath : 'https://course-ec-api.hexschool.io/'
+        },
+        getData: function(apiPath, uuid) {
+            let vm = this;
+            let url = `${apiPath}/api/${uuid}/ec/products`;
+
+            vm.updateToken(vm.data.token)
+            axios.get(url)
+                .then(function (response) {
+                    vm.data.products = response.data.data;
+                    vm.render();
+                })
+            .catch(function (error) {
+                console.log(error)
+            })
+        },
+        render: function() {
+            const vm = this;
+            let app = document.getElementById('app');
+            app.innerHTML = vm.getViewData(vm.data.products);
+        },
+        getViewData (val) {
+            let products = val;
+            let str = '';
+            if (products.length > 0) {
+                products.forEach(function(item) {
+                    str += `
+                        <div class="card">
+                            <img src="${ item.imageUrl[0] }" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">${ item.title }</h5>
+                                <p class="card-text">${ item.content }</p>
+                            </div>
+                        </div>`;
+                });
+                return str
+            }
+        },
+        updateToken (token) {
+            axios.defaults.headers['Authorization'] = `Bearer ${token}`
+        }
+    }
+
+    obj.getData(obj.data.apiPath, obj.data.uuid);
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div id="forCard"></div>
+    </div>
+
+
+    <script type="text/x-template" id="forCard">
+        <!-- +span也可以拉 -->
+    <div>
+        {{ data }}
+    </div>
+    </script>
+
+    <script type="module">
+        //type="module" 外部檔案可以匯入進來 week2 影片有詳細介紹
+        var card = {
+            data: function () {
+                return {
+                    data: '這是一句話',
+                }
+            },
+            template: '#forCard',
+        }
+
+        //全域的寫法------------
+        import card from './card.js';
+        Vue.component('card', card);
+        //可以這樣寫
+        //---------------------
+
+
+        var app = new Vue({
+            components: {
+                card
+                //因為card: card, 所以縮寫成: card
+            },
+            el: '#app',
+            data: {
+
+            }
+        });
+    </script>
+
+</body>
+
+</html>

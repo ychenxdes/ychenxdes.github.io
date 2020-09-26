@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        .completed {
+            text-decoration: line-through
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<div id="app" class="container my-3">
+    <button id="get" class="btn btn-outline-primary">Get</button>
+    <button id="post" class="btn btn-outline-primary">Post</button>
+    <button id="patch" class="btn btn-outline-primary">Patch</button>
+    <button id="delete" class="btn btn-outline-primary">Delete</button>
+</div>
+
+<script>
+    document.querySelector('#get').addEventListener('click', getData);
+    document.querySelector('#post').addEventListener('click', postData);
+    document.querySelector('#patch').addEventListener('click', patchData);
+    document.querySelector('#delete').addEventListener('click', deleteData);
+
+
+    var uuid = 'bf08608e-9fff-45e3-b8e3-3c9e8e1b9da0';
+    var token = 'el7r8z2CluTB08awDgRsvP2NEi02wLH4EicbqKf2CRLFKbVJrLZnNboPdzlX';
+    var apiPath = 'https://course-ec-api.hexschool.io/';
+
+    // 小心，有錯～，請參考課程影片
+    var sampleData = {
+        title: '好茶',
+        category: 'tea',
+        content: '內容',
+        description: "內容",
+        imageUrl: [
+            'https://images.unsplash.com/photo-1587918515749-a2a68b40a124?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
+        ],
+        enabled: true,
+        origin_price: 100,
+        price: 90,
+        unit: '杯',
+    }
+
+    var sampleData2 = {
+        title: '茶',
+        category: 'tea',
+        content: '內容',
+        description: "內容",
+        imageUrl: [
+            'https://images.unsplash.com/photo-1587918515749-a2a68b40a124?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
+        ],
+        enabled: true,
+        origin_price: 100,
+        price: 90,
+        unit: '杯',
+    }
+
+    var id = ''
+
+    axios.defaults.headers['Authorization'] = `Bearer ${token}`
+    // axios 設定說明：https://github.com/axios/axios#config-defaults
+
+    function getData() {
+        console.log('getData');
+        let api = `${apiPath}api/${uuid}/ec/products`;
+        axios.get(api).then(function (res) {
+            let data = res.data.data
+            id = data[0].id
+            console.log(data)
+        })
+
+    }
+
+    function postData() {
+        console.log('postData');
+        let api = `${apiPath}api/${uuid}/admin/ec/product`
+        axios.post(api, sampleData)
+            .then( (res) => {
+                console.log(res)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+
+    }
+
+    function patchData() {
+        console.log('patchData');
+        let api = `${apiPath}api/${uuid}/admin/ec/product/${id}`
+        axios.patch(api, sampleData2)
+            .then( (res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
+    function deleteData() {
+        console.log('deleteData');
+        let api = `${apiPath}api/${uuid}/admin/ec/product/${id}`
+        axios.delete(api, sampleData2)
+            .then( (res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+    }
+</script>
+</body>
+</html>

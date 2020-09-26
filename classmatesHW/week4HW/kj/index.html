@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        html {
+        height: 100%;
+        }
+
+        body {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Microsoft JhengHei";
+        }
+    </style>
+</head>
+
+<body>
+    <div id="login">
+        <div class="container">
+            <form class="text-center" style="width:300px" @submit.prevent="signIn">
+                <h1 class="h3 mb-4">請先登入</h1>
+                <div class="form-group">
+                    <label for="loginInput" class="sr-only">E-mail信箱</label>
+                    <input type="email" class="form-control" id="loginInput" v-model="user.email"
+                        placeholder="請輸入E-mail信箱">
+                </div>
+                <div class="form-group">
+                    <label for="passwordInput" class="sr-only">密碼</label>
+                    <input type="password" class="form-control" id="passwordInput" v-model="user.password"
+                        placeholder="請輸入密碼">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">登入</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <script src="login.js"></script>
+</body>
+
+</html>

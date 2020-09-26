@@ -1,0 +1,136 @@
+<!-- 第一週 主線任務-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <title>Js</title>
+</head>
+<style>
+    .completed {
+        text-decoration: line-through
+    }
+</style>
+<body>
+<div id="app" class="container my-3">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">待辦事項</span>
+        </div>
+        <!-- 輸入框 id="newTodo"-->
+        <input type="text" class="form-control" placeholder="準備要做的任務" id="newTodo">
+        <!-- 輸入框 end -->
+        <!-- 新增鍵 -->
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="addTodo" >新增</button>
+        </div>
+        <!-- 新增鍵 end-->
+    </div>
+    <!-- 顯示列表    -->
+    <div class="card text-center">
+        <ul class="list-group list-group-flush text-left" id="todoList">
+        </ul>
+        <div class="card-footer d-flex justify-content-between">
+            <span>還有 <span id="taskCount">0</span> 筆任務</span>
+            <a href="#" id="clearTask">清除所有任務</a>
+        </div>
+    </div>
+    <!-- 顯示列表 end -->
+</div>
+<script>
+    var todoData = [];
+    // 新增功能
+    var addTodo = document.getElementById('addTodo');
+
+    function addData (js_new_todo_id) {
+        let newTodo = document.getElementById(`${js_new_todo_id}`).value;
+        if (newTodo.trim() !== '') {
+            let query = {
+                id: Math.floor(Date.now()),
+                title: newTodo,
+                completed: false
+            };
+            todoData.push(query);
+        }
+        // console.log(todoData)
+        updateView (todoData, 'todoList', 'taskCount', 'newTodo' )
+    }
+    addTodo.addEventListener('click', function () {
+        addData ('newTodo')
+    });
+
+
+    // 刪除功能
+    document.getElementById('todoList').addEventListener('click', function (e) {
+        var removeIndex = 0;
+        if (e.target.dataset.action == 'remove') { // 若 action 為 remove
+            todoData.forEach(function (item, key) {
+                if (e.target.dataset.id == item.id) { // 若 id 與 item.id 相同
+                    removeIndex = key; // 取得 位置
+                }
+            })
+            todoData.splice(removeIndex, 1); // 刪除 位置
+            updateView(todoData, 'todoList', 'taskCount');
+        }
+    });
+
+    // 勾選列表
+    document.getElementById('todoList').addEventListener('click', function (e) {
+        if (e.target.dataset.action == 'complete') { // 若 action 為 complete
+            todoData.forEach(function (item) {
+                if (e.target.dataset.id == item.id) { // 若 id 與 item.id 相同
+                    item.completed = !item.completed
+                }
+            })
+            updateView(todoData, 'todoList', 'taskCount');
+        }
+    });
+
+    // 清除全部列表
+    document.getElementById('clearTask').addEventListener('click', function (e) {
+        e.preventDefault();
+        todoData = [];
+        removeAllData('todoList', 'taskCount');
+    });
+
+
+    // 更新畫面
+    function updateView (data, js_todo_id, js_task_count_id, js_new_todo_id) {
+        var str = '';
+        data.forEach(function (item) {
+            str += `<li class="list-group-item">
+                            <div class="d-flex">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" ${item.completed ? 'checked' : ''} data-action="complete" data-id="${item.id}">
+                                    <label class="form-check-label ${item.completed ? 'completed' : ''}" data-action="complete" data-id="${item.id}"> ${item.title}</label>
+                                </div>
+                                <button type="button" class="close ml-auto" aria-label="Close">
+                                    <span aria-hidden="true" data-action="remove" data-id="${item.id}">&times;</span>
+                                </button>
+                            </div>
+                        </li>`;
+        })
+        document.getElementById(js_todo_id).innerHTML = str; // 渲染畫面
+        document.getElementById(js_task_count_id).textContent = data.length; // 更新幾筆資料
+
+        if (js_new_todo_id) { // 清空 input
+            document.getElementById(js_new_todo_id).value = '';
+        }
+    }
+
+    // 刪除全部
+    function removeAllData(js_todo_id, js_task_count_id) {
+        document.getElementById(js_todo_id).innerHTML = '';
+        document.getElementById(js_task_count_id).textContent = '0';
+    }
+
+
+</script>
+
+</body>
+</html>
