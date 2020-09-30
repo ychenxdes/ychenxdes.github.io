@@ -1,0 +1,386 @@
+// 導覽列選單
+.mainnav-wrap {
+    position: relative;
+    float: right;
+}
+
+.mainnav {
+    * {
+        box-sizing: border-box;
+    }
+    ul {
+        li {
+            display: inline-block;
+            vertical-align: middle;
+            & > a {
+                display: block;
+                width: auto;
+                text-align: center;
+                height: 32px;
+                line-height: 32px;
+                color: #000;
+                &.current,
+                &:hover {
+                    background: image-url("nav_over.png") center no-repeat;
+                }
+            }
+            &.LS-more {
+                & > a {
+                    display: block;
+                    width: image-width("sub.png");
+                    height: image-height("sub.png");
+                    background: image-url("sub.png") 50% 50% no-repeat;
+                }
+            }
+        }
+    }
+}
+
+@if $subnav-type==1 {
+    .ele-subnav-title {
+        display: block;
+        //height: 43px;
+        line-height: 43px;
+        text-align: center;
+        font-size: 14px;
+        color: rgb(255, 191, 0);
+        @include text-truncate;
+        @if $subnav-kind==1 {
+            background: #2a2a2a;
+        } @else if $subnav-kind==2 {
+            background: #424242;
+        } @else if $subnav-kind==3 {
+            background: #870000;
+        } @else if $subnav-kind==4 {
+            background: #ddd;
+            color: #f90c0b;
+        }
+    }
+
+    .ele-drop-group {
+        width: 130px;
+        * {
+            box-sizing: border-box;
+        }
+    }
+
+    .lsub-inner-wrap {
+        width: 100%;
+        border-width: 1px;
+        border-style: solid;
+        border: 1px solid $subnav-border;
+        box-shadow: rgba(16, 16, 16, 0.3) 2px 3px 3px;
+        a {
+            display: block;
+            height: 38px;
+            line-height: 38px;
+            font-size: 12px;
+            @include text-truncate;
+            padding: 0 10px 0 37px;
+            &:hover {
+                color: $subnav-hover;
+            }
+        }
+        @if $subnav-kind==1 {
+            background: rgba(0, 0, 0, 0.95);
+            a {
+                color: #fff;
+            }
+        } @else if $subnav-kind==2 {
+            background: rgba(85, 85, 85, 0.95);
+            a {
+                color: #fff;
+            }
+        } @else if $subnav-kind==3 {
+            background: rgba(255, 255, 255, 0.8);
+            a {
+                color: #000;
+            }
+        } @else if $subnav-kind==4 {
+            background: rgba(255, 255, 255, 0.8);
+            a {
+                color: #000;
+            }
+        }
+    }
+
+    #nav-game {
+        &.ele-drop-group {
+            width: 448px;
+        }
+        .lsub-inner-wrap {
+            @include clearfix;
+            a {
+                width: 25%;
+                float: left;
+            }
+        }
+    }
+} @else if $subnav-type==2 {
+    .ele-subnav-title {
+        display: none;
+    }
+    .ele-drop-group {
+        width: 100%;
+        box-shadow: rgba(16, 16, 16, 0.3) 2px 3px 3px;
+        min-width: 1000px;
+        padding: 30px 0;
+        box-sizing: content-box;
+        opacity: 0.95;
+        @if $subnav-kind==1 {
+            background: rgba(18, 18, 18, 0.95);
+            a {
+                color: #fff;
+            }
+        } @else if $subnav-kind==2 {
+            background: rgba(85, 85, 85, 0.95);
+            a {
+                color: #fff;
+            }
+        } @else if $subnav-kind==3 {
+            background: rgba(249, 249, 249, 0.95);
+            a {
+                color: #333;
+            }
+        } @else if $subnav-kind==4 {
+            background: rgba(255, 255, 255, 0.95);
+            a {
+                color: #333;
+            }
+        }
+    }
+
+    .lsub-inner-wrap {
+        @include clearfix;
+        width: 1000px;
+        min-height: 200px;
+        margin: 0 auto;
+        padding-left: 225px;
+        background-repeat: no-repeat;
+        background-position: left top;
+        $ele-drop-nav: ball, live, game, card;
+        @each $var in $ele-drop-nav {
+            #nav-#{$var} & {
+                background-image: image-url("lang/zh-cn/subnav_#{$var}_title.png");
+            }
+        }
+        #nav-lottery & {
+            background-image: image-url("lang/zh-cn/subnav_ltlottery_title.png");
+        }
+        #nav-more & {
+            width: 130px;
+            min-height: auto;
+            padding: 0;
+            margin: 0;
+        }
+        a {
+            &:before {
+                content: "";
+                display: block;
+                width: 120px;
+                height: 40px;
+                background-repeat: no-repeat;
+                $ele-drop-icon: ball, live, game, card;
+                @each $var in $ele-drop-icon {
+                    #nav-#{$var} & {
+                        background-image: image-url("not-use/subnav/subnav_#{$var}_icon.png");
+                    }
+                }
+                #nav-lottery & {
+                    background-image: image-url("not-use/subnav/subnav_ltlottery_icon.png");
+                }
+            }
+            //體育
+            &.ball-subnavlink-cs:before {
+                background-position-x: -120px;
+            }
+            &.ball-subnavlink-saba:before {
+                background-position-x: -120px * 2;
+            }
+            &.ball-subnavlink-bo:before {
+                background-position-x: -120px * 4;
+            }
+
+            //視訊
+            &.live-subnavlink-mg:before {
+                background-position-x: -120px;
+            }
+            &.live-subnavlink-ebet:before {
+                background-position-x: -120px * 2;
+            }
+            &.live-subnavlink-evo:before {
+                background-position-x: -120px * 3;
+            }
+            &.live-subnavlink-ag:before {
+                background-position-x: -120px * 4;
+            }
+            &.live-subnavlink-gd:before {
+                background-position-x: -120px * 5;
+            }
+            &.live-subnavlink-bg:before {
+                background-position-x: -120px * 6;
+            }
+            &.live-subnavlink-allbet:before {
+                background-position-x: -120px * 7;
+            }
+            &.live-subnavlink-xbb:before {
+                background-position-x: -120px * 8;
+            }
+            &.live-subnavlink-eg:before {
+                background-position-x: -120px * 9;
+            }
+            &.live-subnavlink-nbb:before {
+                background-position-x: -120px * 10;
+            }
+            &.live-subnavlink-wm:before {
+                background-position-x: -120px * 11;
+            }
+            &.live-subnavlink-ssg:before {
+                background-position-x: -120px * 13;
+            }
+
+            //機率
+            &.game-subnavlink-bb:before {
+                background-position-x: -120px;
+            }
+            &.game-subnavlink-jdb:before {
+                background-position-x: -120px * 2;
+            }
+            &.game-subnavlink-pg:before {
+                background-position-x: -120px * 3;
+            }
+            &.game-subnavlink-xbb:before {
+                background-position-x: -120px * 5;
+            }
+            &.game-subnavlink-yg:before {
+                background-position-x: -120px * 6;
+            }
+            &.game-subnavlink-fg:before {
+                background-position-x: -120px * 7;
+            }
+            &.game-subnavlink-cq9:before {
+                background-position-x: -120px * 8;
+            }
+            &.game-subnavlink-aw:before {
+                background-position-x: -120px * 9;
+            }
+            &.game-subnavlink-ka:before {
+                background-position-x: -120px * 10;
+            }
+            &.game-subnavlink-gti:before {
+                background-position-x: -120px * 11;
+            }
+            &.game-subnavlink-wm:before {
+                background-position-x: -120px * 12;
+            }
+            &.game-subnavlink-bng:before {
+                background-position-x: -120px * 13;
+            }
+            &.game-subnavlink-sw:before {
+                background-position-x: -120px * 14;
+            }
+            &.game-subnavlink-pt:before {
+                background-position-x: -120px * 15;
+            }
+            &.game-subnavlink-pp:before {
+                background-position-x: -120px * 16;
+            }
+            &.game-subnavlink-sg:before {
+                background-position-x: -120px * 18;
+            }
+            &.game-subnavlink-mega:before {
+                background-position-x: -120px * 19;
+            }
+            &.game-subnavlink-ag:before {
+                background-position-x: -120px * 20;
+            }
+            &.game-subnavlink-hb:before {
+                background-position-x: -120px * 21;
+            }
+            &.game-subnavlink-mg:before {
+                background-position-x: -120px * 22;
+            }
+            &.game-subnavlink-gns:before {
+                background-position-x: -120px * 23;
+            }
+            &.game-subnavlink-isb:before {
+                background-position-x: -120px * 24;
+            }
+            &.game-subnavlink-mt:before {
+                background-position-x: -120px * 26;
+            }
+            &.game-subnavlink-ps:before {
+                background-position-x: -120px * 27;
+            }
+            &.game-subnavlink-ace:before {
+                background-position-x: -120px * 29;
+            }
+            &.game-subnavlink-eg:before {
+                background-position-y: -40px;
+            }
+            &.game-subnavlink-tp:before {
+                background-position: -120px -40px;
+            }
+            &.game-subnavlink-df:before {
+                background-position: -120px * 2 -40px;
+            }
+
+            //彩票
+            &.lottery-subnavlink-xbb:before {
+                background-position-x: -120px;
+            }
+            &.lottery-subnavlink-vr:before {
+                background-position-x: -120px * 2;
+            }
+
+            //棋牌
+            &.card-subnavlink-kg:before {
+                background-position: -120px;
+            }
+            &.card-subnavlink-yg:before {
+                background-position: -120px * 2;
+            }
+            &.card-subnavlink-fg:before {
+                background-position: -120px * 3;
+            }
+            &.card-subnavlink-jdb:before {
+                background-position: -120px * 4;
+            }
+            &.card-subnavlink-mt:before {
+                background-position: -120px * 6;
+            }
+            &.card-subnavlink-ace:before {
+                background-position: -120px * 7;
+            }
+            &.card-subnavlink-leg:before {
+                background-position: -120px * 8;
+            }
+            &.card-subnavlink-xy:before {
+                background-position: -120px * 9;
+            }
+
+            float: left;
+            display: block;
+            width: 120px;
+            height: 90px;
+            font-size: 14px;
+            text-align: center;
+            @include text-truncate;
+            &:hover {
+                color: $subnav-hover;
+            }
+            #nav-more & {
+                background: none;
+                width: 130px;
+                height: 38px;
+                line-height: 38px;
+                padding: 0 10px 0 37px;
+                font-size: 12px;
+                text-align: left;
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+}

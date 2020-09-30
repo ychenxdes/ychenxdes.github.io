@@ -1,0 +1,47 @@
+// 清除浮動
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// 置中放置內容的區塊
+@mixin container-fixed($gutter: $grid-gutter-width) {
+    width: $container-width;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: ($gutter / 2);
+    padding-right: ($gutter / 2);
+    @include clearfix;
+}
+
+// 圖片
+@mixin bg($img) {
+    width: image-width(#{$img});
+    height: image-height(#{$img});
+    background: image-url(#{$img}) no-repeat;
+}
+
+// 按鈕圖片
+@mixin bg-btn($img) {
+    width: image-width(#{$img});
+    height: image-height(#{$img})/2;
+    background: image-url(#{$img}) no-repeat;
+    &:hover {
+        background-position: bottom;
+    }
+}
+
+@mixin alink() {
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        @content;
+    }
+}

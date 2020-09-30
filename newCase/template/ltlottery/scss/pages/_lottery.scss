@@ -1,0 +1,373 @@
+.lottery-wrap {
+	@include layout-max-width;
+}
+.lottery-menu {
+	background: #333;
+	li {
+		position: relative;
+		float: left;
+		width: 160px;
+		height: 42px;
+		font-weight: bold;
+		text-align: center;
+		a {
+			display: block;
+			color: #bababa;
+			line-height: 42px;
+			&:hover, &.current {
+				background: #2B2B2B;
+                color: #fff;
+            }
+		}
+		&:before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            right: 0;
+            top: 0;
+            background: #3d3d3d;
+        }
+	}
+}
+
+.lottrey-center-box {
+	position: relative;
+	@include clearfix;
+}
+.lottery-slider-wrap {
+	position: relative;
+	float: left;
+	width: calc(100% - 272px);
+	max-height: 278px;
+}
+.lottery-gamepanel-wrap {
+	position: absolute;
+	background: image-url('bg_logout_game.jpg') no-repeat left top;
+	width: 272px;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+.gamepanel-box {
+	height: calc(100% - 42px);
+	text-align: center;
+	&:before {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		height: 100%;
+	}
+}
+.gamepanel-title {
+	font-size: 26px;
+	font-weight: bold;
+	color: #fff;
+	display: inline-block;
+	vertical-align: middle;
+	height: 34px;
+	span {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.rule-icon {
+		display: inline-block;
+		vertical-align: middle;
+		background: image-url('icon_quest_n.png') no-repeat left top;
+		width: image-width('icon_quest_n.png');
+		height: image-height('icon_quest_n.png');
+		margin-left: 10px;
+		@include trans(all);
+		&:hover {
+			background: image-url('icon_quest_h.png') no-repeat left top;
+		}
+	}
+}
+.game-star-btn {
+	display: block;
+	height: 42px;
+	line-height: 42px;
+	text-align: center;
+	color: #fff;
+	background: linear-gradient(270deg,#f5e047,#f7d846,#fd6661,#ff4469);
+}
+
+.lottery-guesslike-wrap {
+	background: #333;
+	font-size: 0;
+}
+.guesslike-title {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 10px;
+	width: 110px;
+	color: #19cdad;
+	font-size: 16px;
+	text-align: center;
+	font-weight: bold;
+}
+.guesslike-game-box {
+	display: inline-block;
+	background: #444;
+	width: calc(100% - 110px);
+}
+.guesslike-game {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 13px 0 12px;
+	width: 20%;
+	height: 60px;
+	border-left: 1px solid #525252;
+	line-height: 17px;
+	text-align: left;
+	cursor: pointer;
+	$guesslike-icon: bb, xbb, vr;
+	.guesslike-game-icon {
+		display: inline-block;
+		padding: 0 0 0 44px;
+		height: 60px;
+		&:before {
+			content: '';
+			display: inline-block;
+			vertical-align: middle;
+			height: 60px;
+		}
+		@each $var in $guesslike-icon {
+			&.guesslike-#{$var}-icon {
+				background: image-url('not-use/icon_#{$var}_n.png') no-repeat left center;
+			}
+		}
+		p {
+			display: inline-block;
+			vertical-align: middle;
+			span {
+				display: block;
+				font-size: 12px;
+				color: #69eece;
+				&.guesslike-game-subtitle {
+					font-size: 14px;
+					color: #fff;
+					&.text-over {
+						width: 107px;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						white-space: nowrap;
+					}
+				}
+			}
+		}
+	}
+	&:hover {
+		background: linear-gradient(90deg,#0295ec,#1aceac 44%,#85efdd);
+		.guesslike-game-name {
+			color: #fff;
+		}
+		.guesslike-game-icon {
+			@each $var in $guesslike-icon {
+				&.guesslike-#{$var}-icon {
+					background: image-url('not-use/icon_#{$var}_h.png') no-repeat left center;
+				}
+			}
+		}
+	}
+}
+
+.lottery-hero-board {
+	font-size: 12px;
+	height: 36px;
+	line-height: 36px;
+	background: #fff;
+	border-bottom: 4px solid #dfdfdf;
+	border-left: 1px solid #dfdfdf;
+	border-right: 1px solid #dfdfdf;
+}
+.hero-block {
+	display: inline-block;
+	background: image-url('icon_crown.png') no-repeat left center;
+	padding: 0 0 0 30px;
+	margin: 0 12px 0 0;
+	color: #798699;
+	a {
+		font-weight: bold;
+		color: #52A5FD;
+		padding: 0 3px;
+	}
+	p {
+		display: inline-block;
+		font-weight: bold;
+		padding: 0 3px;
+	}
+}
+
+.lottery-trandition-box {
+	border-bottom: 4px solid #dfdfdf;
+	@include clearfix;
+}
+.lottery-trandition-wrap {
+	float: left;
+	width: calc((100% - 272px) / 2);
+	height: 334px;
+	background: #fff;
+	border-left: 1px solid #dfdfdf;
+}
+.trandition-game-list {
+	height: 67px;
+	border-bottom: 1px solid #dfdfdf;
+	background-color: transparent;
+	cursor: pointer;
+	@include trans(background);
+	&.new-icon {
+		background: image-url('icon_new.png') no-repeat left top;
+	}
+	&.hot-icon {
+		background: image-url('icon_hot.png') no-repeat left top;
+	}
+	&:hover {
+		background-color: #f5f7f8;
+	}
+}
+.trandition-list-title {
+	font-size: 18px;
+	font-weight: bold;
+	color: #3e4754;
+	padding: 0 11px 0 24px;
+	display: inline-block;
+	vertical-align: middle;
+	&:before {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		height: 66px;
+	}
+}
+.trandition-rule-icon {
+	float: right;
+	margin: 20px 24px 0 0;
+	width: 26px;
+	height: 26px;
+	background: image-url('icon_quest_n.png') no-repeat left top;
+	background-size: 26px;
+	@include trans(background);
+	&:hover {
+		background: image-url('icon_quest_h.png') no-repeat left top;
+		background-size: 26px;
+	}
+}
+.lottrey-ad-wrap {
+	float: left;
+	border-left: 4px solid #dfdfdf;
+	width: image-width('lang/zh-cn/ad01.jpg');
+	height: image-height('lang/zh-cn/ad01.jpg');
+	background: image-url('lang/zh-cn/ad01.jpg');
+	a {
+		height: image-height('lang/zh-cn/ad01.jpg');
+		display: block;
+	}
+}
+
+.lottery-official-wrap {
+	@include clearfix;
+	background: #f6f7f9;
+	> ul {
+		float: left;
+		width: 50%;
+	}
+}
+.official-game-info {
+	width: 100%;
+	height: 64px;
+	border-bottom: 1px solid #dfdfdf;
+	border-right: 1px solid #dfdfdf;
+	padding: 0 0 0 24px;
+	&:before {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		height: 64px;
+	}
+	&:hover{
+		background: #ebebeb;
+	}
+	&.lotto, &.fastbb, &.pk115 {
+		border-left: 1px solid #dfdfdf;
+	}
+}
+.official-game-icon {
+	display: inline-block;
+	vertical-align: middle;
+	width: image-width('not-use/icon_lotto.png');
+	height: image-height('not-use/icon_lotto.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+	$official-icon: lotto, fastbb, keno, happy10; 
+	@each $var in $official-icon {
+		.#{$var} & {
+			background-image: image-url('not-use/icon_#{$var}.png');
+		}
+		.pk115 & {
+			background-image: image-url('not-use/icon_pk&115.png');
+		}
+		.lottofast3 & {
+			background-image: image-url('not-use/icon_1010lotto&fast3.png');
+		}
+	}
+}
+.official-game-list-box {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 0 0 18px;
+}
+.official-game-title {
+	line-height: 18px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.officical-game-list {
+	line-height: 16px;
+	margin: 4px 0 0 0;
+	display: inline-block;
+	vertical-align: middle;
+	li {
+		font-size: 12px;
+		display: inline-block;
+		color: #d5d5d5;
+		padding: 0 5px;
+		a {
+			color: #798699;
+			&.current {
+				font-weight: bold;
+				color: #f89c4b;
+			}
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+.official-game-more {
+	font-size: 12px;
+	color: #b8b8c9;
+	margin: 0 0 0 5px;
+	&:hover {
+		color: #b8b8c9;
+		text-decoration: underline;
+	}
+}
+.official-btn {
+	float: right;
+	margin: 17px 24px 0 0;
+	padding: 0 3px;
+	width: 56px;
+	height: 30px;
+	line-height: 26px;
+	font-size: 14px;
+	color: #798699;
+	text-align: center;
+	border: 2px solid #dfe1e0;
+	border-radius: 8px;
+	&:hover {
+		border: 0;
+		background: #f9a542;
+		line-height: 30px;
+	}
+}

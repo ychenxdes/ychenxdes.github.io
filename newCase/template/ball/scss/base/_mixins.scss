@@ -1,0 +1,30 @@
+// 清除浮動
+@mixin clearfix() {
+    &:after,
+    &:before {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// 引入圖片及寬高自動為圖片實際尺寸
+@mixin bg($img) {
+    width: image-width(#{$img});
+    height: image-height(#{$img});
+    background-image: image-url(#{$img});
+}
+
+// 轉場效果
+@mixin trans($key) {
+    transition: $key 0.3s ease-in-out;
+}
+
+// 版型內容區域的最大預設寬度
+@mixin layout-max-width() {
+    max-width: 1200px;
+    min-width: 960px;
+    margin: 0 auto;
+}

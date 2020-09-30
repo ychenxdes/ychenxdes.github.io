@@ -1,0 +1,79 @@
+@if $top-slider==true {
+    .ele-slideshow-wrap {
+        position: relative;
+        ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: $slider-width-m;
+            height: $slider-height-m;
+            li {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: $slider-width-m;
+                height: $slider-height-m;
+                -webkit-backface-visibility: hidden;
+                a {
+                    display: block;
+                    img {
+                        display: block;
+                        max-width: $slider-width-m;
+                        height: auto;
+                        float: left;
+                    }
+                    .img {
+                        width: $slider-width-m;
+                        height: $slider-height-m;
+                        background-position: top left;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        // @include MQ(desktop) {
+                        //     width: $slider-width-t;
+                        //     height: $slider-height-t;
+                        // }
+                        // @include MQ(custom) {
+                        //     width: $slider-width-s;
+                        //     height: $slider-height-s;
+                        // }
+                    }
+                }
+                // @include MQ(desktop) {
+                //     width: $slider-width-t;
+                //     height: $slider-height-t;
+                // }
+                // @include MQ(custom) {
+                //     width: $slider-width-s;
+                //     height: $slider-height-s;
+                // }
+            }
+            // @include MQ(desktop) {
+            //     width: $slider-width-t;
+            //     height: $slider-height-t;
+            // }
+            // @include MQ(custom) {
+            //     width: $slider-width-s;
+            //     height: $slider-height-s;
+            // }
+        }
+    }
+    .ele-slideshow-scroll {
+        position: relative;
+        z-index: 1;
+        width: $slider-width-m;
+        height: $slider-height-m;
+        overflow: hidden;
+        // @include MQ(desktop) {
+        //     width: $slider-width-t;
+        //     height: $slider-height-t;
+        // }
+        // @include MQ(custom) {
+        //     width: $slider-width-s;
+        //     height: $slider-height-s;
+        // }
+    }
+    .ele-slideshow-control-wrap {
+        position: absolute;
+        z-index: 3;
+    }
+} else {}

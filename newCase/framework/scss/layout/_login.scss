@@ -1,0 +1,122 @@
+// meminfo i 下拉選單設定
+@include meminfo ( $mem-color: #fff, // 1 文字顏色
+$mem-bg: #333, // 2 背景顏色
+$mem-tool-bg: #CCC, // 3 餘額轉換背景顏色
+$mem-tool-color: #fff, // 4 餘額轉換按鈕文字顏色
+$mem-tool-btn-bg: #1a1a1a, // 5 餘額轉換按鈕背景顏色
+$mem-line-color: #0030ff // 6 餘額轉換上線條顏色
+) {}
+
+.login-wrap,
+.meminfo-wrap {
+    padding: 16px;
+    a {
+        @include trans(color);
+        &:hover {
+            text-decoration: underline;
+            @include trans(color);
+        }
+    }
+}
+
+
+// 登入前
+.login-wrap {
+    background-image: image-url('login_bg.png');
+}
+
+.login-unit {
+    position: relative;
+}
+
+.login-placeholder {
+    position: absolute;
+    top: 0;
+    left: 16px;
+    line-height: 40px;
+    color: #000;
+}
+
+.login-input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    background: image-url('input.png') repeat; // 如果帳號、密碼、驗證碼背景不一樣，取名 input_bg01、input_bg02、input_bg03
+    font-size: 12px;
+    border: 0;
+    margin-bottom: 10px;
+    padding-left: 16px;
+}
+.login-pwd-icon {
+    position: absolute;
+    width: 17px;
+    height: 12px;
+    cursor: pointer;
+    right: 10px;
+    top: 50%;
+    margin-top: -6px;
+    background-position: left top;
+    //選擇密碼顯示眼睛顏色
+    @if $login-pwd-icon==1 {
+        background: image-url('not-use/password_icon/black.png');
+    }
+    @else if $login-pwd-icon==2 {
+        background: image-url('not-use/password_icon/blue.png');
+    }
+    @else if $login-pwd-icon==3 {
+        background: image-url('not-use/password_icon/brown.png');
+    }
+    @else if $login-pwd-icon==4 {
+        background: image-url('not-use/password_icon/gold.png');
+    }
+    @else if $login-pwd-icon==5 {
+        background: image-url('not-use/password_icon/green.png');
+    }
+    @else if $login-pwd-icon==6 {
+        background: image-url('not-use/password_icon/grey_dark.png');
+    }
+    @else if $login-pwd-icon==7 {
+        background: image-url('not-use/password_icon/grey_light.png');
+    }
+    @else if $login-pwd-icon==8 {
+        background: image-url('not-use/password_icon/purple.png');
+    }
+    @else if $login-pwd-icon==9 {
+        background: image-url('not-use/password_icon/red.png');
+    }
+    @else if $login-pwd-icon==10 {
+        background: image-url('not-use/password_icon/white.png');
+    }
+    @else if $login-pwd-icon==11 {
+        background: image-url('not-use/password_icon/yellow.png');
+    }
+    &.is-show {
+        background-position: left bottom;
+    }
+}
+
+.login-btn-wrap {}
+
+.login-forgetpw {}
+
+.login-join {}
+
+.login-submit {}
+
+
+// 登入後
+.meminfo-wrap {
+    background-image: image-url('mem_info_bg.png'); // 如果登入前後背景都一樣，則統一 login_bg.png
+    padding: 16px;
+}
+
+.ele-accinfo,
+.ele-obalance-wrap {
+    display: inline-block;
+}
+
+.login-Menual {
+    li {
+        display: inline-block;
+    }
+}

@@ -1,0 +1,110 @@
+/* --- 首頁輪播 --- */
+@if $first-slider==true {
+    .card {
+        .ele-slideshow-wrap {
+            position: relative;
+            // z-index: 2;
+            top: 0;
+            width: 100%;
+            height: auto;
+            ul {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                li {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    a {
+                        display: block;
+                        .img {
+                            display: block;
+                            max-width: 1200px;
+                            min-width: 960px;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            .height {
+                display: block;
+                opacity: 0;
+                img {
+                    display: block;
+                    width: 100%;
+                }
+            } //新增，製造一個支撐DIV高度的區塊
+        }
+        
+        .ele-slideshow-scroll {
+            overflow: hidden;
+            position: absolute;
+            z-index: 1;
+            margin: 0 auto;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        // 左右箭頭
+        .ele-slideshow-arrow-wrap {
+            top: 50%;
+            .ele-slideshow-arrow {
+                position: absolute;
+                z-index: 9;
+                display: inline-block;
+                width: 60px;
+                height: 60px;
+                background: image-url("slider_arrow.png") 0 0 no-repeat;
+                opacity: 0.5;
+                &.ele-slideshow-arrow-right {
+                    right: 0;
+                    background-position: -60px 0;
+                }
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+        // 圓點控制項的框架
+        .ele-slideshow-control-wrap {
+            position: absolute;
+            right: 14px !important;
+            bottom: 16px;
+            z-index: 9;
+        }
+
+        // 圓點控制項的按鈕風格
+        .ele-slideshow-nav {
+            background: rgba(0, 0, 0, .5);
+            border-radius: 3px;
+            padding: 7px 10px;
+            @include clearfix;
+            > a {
+                float: left;
+                width: 10px;
+                height: 10px;
+                background: #CCC;
+                background: rgba(255, 255, 255, .4);
+                border-radius: 100%;
+                margin: 0 4px;
+                &.active {
+                    background: #FFF;
+                }
+            }
+        }
+    }
+
+} else {}
+
+
+
+
+
+
+

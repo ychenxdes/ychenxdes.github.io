@@ -1,0 +1,2163 @@
+body {
+    position: relative;
+    // min-width: 751px;
+    @media only screen and (min-width: 960px) and (max-width: 976px) {
+        overflow-x: hidden;
+    }
+}
+
+.clearfix {
+    @include clearfix;
+}
+
+#page-container {
+    position: relative;
+}
+
+#ele-game-categories-menu-placeholder {
+    position: relative;
+    &.fixed {
+        position: fixed;
+        top: 0;
+        max-width: 960px;
+        width: 100%;
+        z-index: 5;
+        @include MQ(desktop) {
+            position: static;
+        }
+    }
+}
+
+.bb {
+    padding: 0 0 60px 0;
+    @include MQ(desktop) {
+        padding-bottom: 112px;
+    }
+}
+
+.game-wrap {
+    @include container-fixed;
+    padding: 0 0 60px 0;
+    // min-width: 768px;
+    overflow: hidden;
+    // @include MQ(desktop) {
+    //     width: 100%;
+    //     position: relative;
+    // }
+    &.padding-top {
+        padding-top: 90px !important;
+        // @include MQ(desktop) {
+        //     padding-top: 200px;
+        // }
+        // @include MQ(custom) {
+        //     padding-top: 120px;
+        // }
+        @include MQ(desktop) {
+            padding: 0 !important;
+        }
+        &.short-padding {
+            padding-top: 160px;
+            // @include MQ(custom) {
+            //     padding-top: 90px;
+            // }
+            .fishing & {
+                padding-top: 100px;
+                // @include MQ(desktop) {
+                //     padding-top: 120px;
+                // }
+                // @include MQ(custom) {
+                //     padding-top: 60px;
+                // }
+            }
+        }
+    }
+}
+
+.game-nav {
+    position: absolute;
+    top: 0;
+    background: #292929;
+    padding: 0 7px 0 8px;
+    @include clearfix;
+    // @include MQ(custom) {
+    //     display: none;
+    //     position: absolute !important;
+    //     top: 45px;
+    //     z-index: 5;
+    // }
+    .fixed & {
+        // @include MQ(custom) {
+        //     position: fixed;
+        // }
+    }
+    @media only screen and (min-width: 801px) {
+        display: block !important;
+    }
+}
+
+.tablet-game-nav {
+    width: 100%;
+    background: #2b2b2b;
+    border: 1px solid #444;
+    display: none;
+    top: 0;
+    // padding: 0 0 0 15px;
+    padding-left: 7px;
+    cursor: pointer;
+    z-index: 5;
+    @include clearfix;
+    // @include MQ(custom) {
+    //     display: block;
+    // }
+}
+
+.tablet-nav-title {
+    float: left;
+    width: 125px;
+    height: 43px;
+    padding: 8px 20px 8px 0;
+    a {
+        display: block;
+        padding: 3px 0;
+    }
+    .categories-icon {
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        background-repeat: no-repeat;
+        background-position: left top;
+        &.categories-item-recommend {
+            a {
+                color: #FFE599;
+            }
+        }
+    }
+    $tablet-icon: recommend,
+    hot,
+    new,
+    event,
+    promotions,
+    fisharea,
+    bbcasino,
+    kacasino,
+    gticasino,
+    wmcasino,
+    bngcasino,
+    swcasino,
+    ptcasino,
+    sgcasino,
+    mwcasino,
+    jdbcasino,
+    agslotcasino,
+    mgcasino,
+    hbcasino,
+    gnscasino,
+    isbcasino,
+    rtcasino,
+    ppcasino,
+    fgcasino,
+    pgcasino,
+    awcasino,
+    bbllcasino,
+    cq9casino,
+    lgcasino,
+    sbgcasino,
+    acecasino,
+    mtcasino,
+    pscasino,
+    xbbcasino;
+    @each $var in $tablet-icon {
+        &.#{$var} {
+            .categories-icon {
+                background-image: url('../image/lang/zh-cn/nav_logo_#{$var}.png');
+            }
+        }
+    }
+    .categories-name {
+        display: inline-block;
+        vertical-align: top;
+        line-height: 25px;
+        height: 22px;
+        font-size: 15px;
+        color: #ddd;
+        padding: 0 0 0 8px;
+    }
+    &.recommend {
+        .categories-icon {
+            background-position: 0 0;
+        }
+        // a {
+        // 	color: #FFE599;
+        // }
+    }
+}
+
+.tablet-nav-arrow {
+    float: right;
+    margin: 5px 3% 0 0;
+    @include transition(all .3s);
+    i {
+        font-size: 30px;
+        font-weight: bold;
+        color: #fff;
+    }
+    &.trun {
+        transform: rotateX(180deg);
+    }
+}
+
+.game-nav-list {
+    li {
+        float: left;
+        width: 105px;
+        height: 30px;
+        padding: 4px 10px 4px 0;
+        // @include MQ(desktop) {
+        //     width: 14.2%;
+        // }
+        .categories-icon {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            background-position: left top;
+            background-repeat: no-repeat;
+        }
+        .categories-name {
+            display: inline-block;
+            vertical-align: top;
+            line-height: 22px;
+            height: 22px;
+            font-size: 15px;
+            padding: 0 0 0 8px;
+        }
+        $icon: recommend,
+        hot,
+        new,
+        event,
+        promotions,
+        fisharea,
+        bbcasino,
+        kacasino,
+        gticasino,
+        wmcasino,
+        bngcasino,
+        swcasino,
+        ptcasino,
+        sgcasino,
+        mwcasino,
+        jdbcasino,
+        agslotcasino,
+        mgcasino,
+        hbcasino,
+        gnscasino,
+        isbcasino,
+        rtcasino,
+        ppcasino,
+        fgcasino,
+        pgcasino,
+        awcasino,
+        bbllcasino,
+        cq9casino,
+        lgcasino,
+        ygcasino,
+        sbgcasino,
+        acecasino,
+        mtcasino,
+        pscasino,
+        xbbcasino;
+        @each $var in $icon {
+            &.categories-item-#{$var} {
+                .categories-icon {
+                    background-image: url('../image/lang/zh-cn/nav_logo_#{$var}.png');
+                }
+            }
+        }
+        &.categories-item-recommend {
+            a {
+                color: #FFE599;
+            }
+        }
+        a {
+            display: block;
+            color: #868686;
+            &:hover,
+            &.current {
+                color: #FF7373;
+            }
+        }
+    }
+}
+
+.categories-item-fpcasino,
+.categories-item-wmcasino,
+.categories-item-bbiicasino {
+    .categories-icon {
+        background-image: url('../image/lang/zh-cn/nav_logo_NEW.png');
+    }
+}
+
+//SLIDER
+.slider-block {
+    position: relative;
+    background: #842628;
+    .bb & {
+        background: #9a3133;
+    }
+    .fishing &,
+    .no-jackpot & {
+        background: #000;
+    }
+}
+
+.game-slider {
+    margin-right: 250px;
+    max-height: 200px;
+    &.slick-dotted.slick-slider {
+        margin-bottom: 0;
+    }
+    .slick-dots {
+        background: rgba(0, 0, 0, 0.5);
+        width: auto;
+        padding: 6px 10px;
+        right: 10px;
+        bottom: 5px;
+        border-radius: 3px;
+        li {
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+            border-radius: 50%;
+            text-indent: 9999px;
+            background: #fff;
+            opacity: 0.4;
+            text-indent: -3000px;
+            &.slick-active {
+                opacity: 1;
+            }
+            button {
+                &:before {
+                    color: transparent;
+                }
+            }
+        }
+    }
+    img {
+        width: 100%;
+    }
+    .fishing &,
+    .no-jackpot & {
+        margin-right: 26%;
+        z-index: 1;
+    }
+}
+
+//JACKPOT
+.game-jp {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: image-url('jp/game_jp_bg.png') no-repeat left top;
+    width: image-width('jp_bg.gif');
+    height: image-height('jp_bg.gif');
+    // @include MQ(desktop) {
+    //     height: 100%;
+    // }
+    .bb & {
+        padding: 5px 0 0 0;
+        background: image-url('jp_bg.gif') no-repeat left top;
+    }
+    .fishing &,
+    .no-jackpot & {
+        width: 100%;
+        height: 100%;
+        padding-left: 74%;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.game-jp-wrap {
+    position: relative;
+    height: 100%;
+}
+
+.game-jp-wrapper {
+    width: 250px;
+    height: 200px;
+    vertical-align: middle;
+    display: table-cell;
+    // @include MQ(desktop) {
+    //     height: 170px;
+    // }
+    // @include MQ(desktop) {
+    //     position: relative;
+    //     top: -6px;
+    // }
+    .other-jackpot & {
+        height: 122px;
+    }
+}
+
+.game-jp-grand {
+    cursor: pointer;
+    margin: 0 auto;
+    .bb & {
+        background: image-url('jp_grand.png') no-repeat center top;
+        height: 20px;
+        cursor: pointer;
+        &:hover {
+            background-position: center bottom;
+        }
+    }
+    $grand: gti,
+    wm,
+    pt,
+    sg,
+    jdb,
+    mg,
+    gns,
+    isb,
+    aw,
+    fg,
+    pg;
+    @each $var in $grand {
+        .#{$var} & {
+            background: image-url('jp/jp_logo_#{$var}.png') no-repeat left top;
+            width: image-width('jp/jp_logo_#{$var}.png');
+            height: image-height('jp/jp_logo_#{$var}.png');
+        }
+    }
+}
+
+.more-jackpot-slider {
+    width: 250px;
+    height: 168px;
+}
+
+.more-jackpot-logo {
+    margin: 0 auto;
+    $jp-logo: pt, sg, mg, gns, isb, fg, pg, ag;
+    @each $var in $jp-logo {
+        .#{$var} & {
+            background: image-url('jp/jp_logo_#{$var}.png') no-repeat center;
+            width: image-width('jp/jp_logo_#{$var}.png');
+            height: image-height('jp/jp_logo_#{$var}.png');
+        }
+    }
+}
+
+.game-jp-num {
+    line-height: normal;
+    font-size: 22px;
+    font-weight: bold;
+    color: #FFE599;
+    text-align: center;
+    letter-spacing: 1.5px;
+    font-family: arial;
+    .bb & {
+        padding: 8px 0 0 0;
+    }
+    .gti &,
+    .wm &,
+    .jdb &,
+    .aw & {
+        position: relative;
+        padding: 18px 0 0 0;
+        width: image-width('jp/jp_onegame_bg.png');
+        height: image-height('jp/jp_onegame_bg.png');
+        background: image-url('jp/jp_onegame_bg.png') no-repeat center top;
+        top: -6px;
+    }
+}
+
+.game-jp-conent {
+    padding: 20px 16px 0 16px;
+    // @include MQ(desktop) {
+    //     padding-bottom: 38px;
+    // }
+    // @include MQ(custom) {
+    //     padding-bottom: 34px;
+    // }
+}
+
+.game-jp-one {
+    @include clearfix;
+}
+
+.jp-ranking {
+    @for $i from 0 through 23 {
+        &[data-rank="#{$i}"] {
+            .game-jp-icon {
+                background-position: 0px -32px*$i;
+            }
+        }
+    }
+}
+
+.game-jp-icon {
+    float: left;
+    display: block;
+    background: image-url('jp_num.png');
+    width: 32px;
+    height: 32px;
+    .game-jp-one & {
+        background-position: center top;
+    }
+}
+
+.game-jp-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFC8A8;
+    float: left;
+    line-height: 32px;
+}
+
+.game-jp-money {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFC8A8;
+    float: right;
+    line-height: 32px;
+}
+
+.game-jp-more {
+    position: absolute;
+    background: image-url('jp_more.png') no-repeat left top;
+    width: image-width('jp_more.png');
+    height: 21px;
+    font-size: 12px;
+    color: #FFEDB7;
+    text-align: center;
+    line-height: 21px;
+    right: 10px;
+    bottom: 8px;
+    cursor: pointer;
+    &:hover {
+        background-position: left bottom;
+    }
+}
+
+.jp-top24 {
+    display: none;
+}
+
+.jp-top24-wrap {
+    position: fixed;
+    width: 581px;
+    height: 414px;
+    left: 50%;
+    top: 50%;
+    background: #fff;
+    margin: -207px 0 0 -290px;
+    border: 2px solid #bbb;
+    z-index: 6;
+}
+
+.jp-top24-header {
+    width: 100%;
+    height: 52px;
+    background: #9D3335;
+    border-bottom: 1px solid #81282A;
+}
+
+.jp-top24-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #FFE599;
+    line-height: 52px;
+    padding: 0 0 0 20px;
+    display: inline;
+}
+
+.jp-top24-close {
+    float: right;
+    background: image-url('jp_top24_close.png') no-repeat left center;
+    width: image-width('jp_top24_close.png');
+    height: image-height('jp_top24_close.png');
+    width: 35px;
+    height: 52px;
+    cursor: pointer;
+}
+
+.jp-top24-table {
+    float: left;
+    width: 50%;
+    text-align: center;
+    tr {
+        // padding: 9px 0 9px 5px;
+        display: block;
+        font-size: 12px;
+        color: #999;
+        max-height: 30px;
+        line-height: 30px;
+        &.gray-bg {
+            background: #f4f4f4;
+            border-right: 2px solid #fff;
+        }
+        &.jp-top24-topThree {
+            color: #9D3335;
+        }
+    }
+}
+
+.jp-rule {
+    display: none;
+}
+
+.overlay {
+    cursor: pointer;
+}
+
+.jp-rule-wrap {
+    position: fixed;
+    width: 300px;
+    height: 420px;
+    left: 50%;
+    top: 50%;
+    margin: -210px 0 0 -150px;
+    padding: 7px 9px 20px 9px;
+    border: 1px solid #000;
+    z-index: 6;
+    background: #fff;
+}
+
+.jp-rule-close {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 21px;
+    top: 16px;
+    background: image-url('btn_dialog_close.png') no-repeat left top;
+    cursor: pointer;
+}
+
+.jp-rule-content {
+    font-size: 13px;
+    font-weight: bold;
+    color: #868686;
+    line-height: 20px;
+}
+
+.jp-rule-pic {
+    width: image-width('jp_rule_bb.png');
+    height: image-height('jp_rule_bb.png');
+    $page-title: bb, gti, wm, jdb, aw;
+    @each $var in $page-title {
+        &.#{$var} {
+            background: image-url('jp_rule_#{$var}.png') no-repeat center left;
+        }
+    }
+}
+
+.jp-rule-text {
+    padding: 0 20px;
+    margin: 20px 0;
+    line-height: 22px;
+    height: 220px;
+    overflow-y: scroll;
+}
+
+.dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: image-url('dialog_overlay_bg.png') repeat left top;
+    width: 100%;
+    height: 100%;
+    z-index: 6;
+}
+
+.game-jp-rank {
+    .slick-list {
+        height: 68px !important;
+    }
+    // @include MQ(desktop) {
+    //     display: none;
+    // }
+}
+
+.game-jp-list {
+    @include clearfix;
+    padding: 1px 0 1px 16px;
+}
+
+.jp-list-pic {
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin: 6px 10px 0 0;
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid #C14447;
+    img {
+        border-radius: 50%;
+        height: 100%;
+    }
+}
+
+.jp-list-title {
+    position: relative;
+    float: left;
+    font-size: 12px;
+    color: #fff;
+    line-height: 22px;
+    z-index: 2;
+}
+
+.jp-list-money {
+    position: relative;
+    float: left;
+    width: 165px;
+    height: 28px;
+    background: image-url('jp_money_bg.png') no-repeat left top;
+    font-family: arial;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #FFE599;
+    line-height: 28px;
+    text-align: right;
+    padding: 0 6px;
+    box-shadow: 0px 0px 0 #652123, -3px -3px 11px #652123;
+    z-index: 1;
+}
+
+//GAME-MENU
+#game-menu {
+    position: relative;
+    background: #F0F4F8;
+    @include clearfix;
+    border: 1px solid #ddd;
+    &.fixed {
+        // position: absolute;
+        position: fixed;
+        z-index: 98;
+        width: 100%;
+        max-width: 960px;
+        // @include MQ(desktop) {
+        //     top: 120px;
+        // }
+        // @include MQ(custom) {
+        //     top: 45px;
+        // }
+        @include MQ(desktop) {
+            position: static;
+        }
+    }
+    .game-menu-wrap {
+        position: relative;
+        background: #F0F4F8;
+        height: 37px;
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+.game-menu-filter {
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    @include clearfix;
+    li {
+        float: left;
+        width: 100px;
+        line-height: 36px;
+        text-align: center;
+        a {
+            display: block;
+            color: #555;
+            &:hover,
+            &.current {
+                background: #fff;
+                &:after {
+                    content: '';
+                    display: block;
+                    width: 100px;
+                    height: 1px;
+                    background: #fff;
+                }
+            }
+        }
+        &.activity a {
+            color: #DF6969;
+        }
+    }
+}
+
+.game-grid {
+    position: relative;
+    float: right;
+    background: image-url('game_btn_list.png') no-repeat left top;
+    width: 40px;
+    height: 36px;
+    cursor: pointer;
+    border-left: 1px solid #ddd;
+    &:hover {
+        background-position: left bottom;
+    }
+    &.game-list {
+        background: image-url('game_btn_grid.png') no-repeat left top;
+        &:hover {
+            background-position: left bottom;
+        }
+    }
+}
+
+.game-search {
+    @extend .game-grid;
+    background: image-url('game_btn_search.png');
+    border: 0;
+    z-index: 2;
+    &.color {
+        background-color: #eee;
+        background-position: left 36px;
+        height: 36px;
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+.game-search-box {
+    position: absolute;
+    height: 35px;
+    top: 0;
+    right: 80px;
+    background: #eee;
+    z-index: 1;
+}
+
+.game-search-input {
+    border: 0;
+    padding: 0;
+    width: 0;
+    background: transparent;
+    font-size: 12px;
+    color: #666;
+    line-height: 35px;
+    @include transition(all .3s);
+    .open & {
+        width: 173px;
+        border-left: 1px solid #ddd;
+        padding: 0 0 0 14px;
+    }
+    &.test {
+        position: relative;
+        color: #B5271D;
+        animation-name: error;
+        animation-duration: .1s;
+    }
+}
+
+@keyframes error {
+    0% {
+        top: -5px;
+        left: -10px;
+    }
+    25% {
+        bottom: -5px;
+        left: -5px;
+    }
+    50% {
+        bottom: -5px;
+        right: -10px;
+    }
+    75% {
+        bottom: -5px;
+        right: -5px;
+    }
+    100% {
+        top: 0px;
+        left: 0px;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.game-favorite {
+    @extend .game-grid;
+    background: image-url('game_btn_favorite.png');
+    border-right: 1px solid #ddd;
+}
+
+.game-submenu {
+    position: relative;
+    background: #fff;
+}
+
+.game-submenu-wrap {
+    @include clearfix;
+    height: 32px;
+    li {
+        float: left;
+        width: 100px;
+        text-align: center;
+        line-height: 32px;
+        font-size: 14px;
+        a {
+            position: relative;
+            display: block;
+            color: #97B3CE;
+            &:hover,
+            &.current {
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    height: 3px;
+                    left: 0;
+                    bottom: 0;
+                    background: #97B3CE;
+                }
+            }
+        }
+        &.slot {
+            i {
+                padding: 0 0 0 5px;
+                @include transition(all .3s);
+                &.trun {
+                    transform: rotateX(180deg);
+                }
+            }
+        }
+    }
+}
+
+.game-submenu-slot {
+    display: none;
+    position: absolute;
+    background: image-url('dialog_overlay_bg.png') repeat left top;
+    width: 100%;
+    top: 32px;
+    left: 0;
+    padding: 10px 0px 10px 200px;
+    z-index: 5;
+}
+
+.submenu-slot-wrap {
+    float: left;
+    width: 92px;
+    padding: 0 10px;
+    @include clearfix;
+    li {
+        font-size: 12px;
+        font-weight: bold;
+        min-width: 92px;
+        margin: 3px 0;
+        a {
+            color: #fff;
+            padding: 4px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            min-width: 46px;
+            display: inline-block;
+            &.on {
+                border-color: #97B2CD;
+                color: #97B2CD;
+                ;
+            }
+        }
+    }
+}
+
+//GAME
+#game-list {
+    position: relative;
+    padding: 1px 6px;
+    @include clearfix;
+    // @include MQ(desktop) {
+    //     width: 644px;
+    //     margin: 0 auto;
+    //     &.list {
+    //         width: 768px;
+    //     }
+    //     &.hot-activity {
+    //         width: 758px;
+    //     }
+    // }
+    &.list {
+        padding-top: 2px;
+    }
+    .fishing & {
+        padding: 10px 0 0 0;
+    }
+}
+
+.game-box {
+    position: relative;
+    float: left;
+    width: 152px;
+    height: 156px;
+    border: 1px solid #D5D9DE;
+    border-radius: 6px;
+    margin: 5px 3px;
+    background: #fff;
+    animation-name: scale;
+    animation-duration: .3s;
+    .list & {
+        width: 49%;
+        height: 50px;
+        margin: 2px 0.5%;
+        animation-name: list;
+        animation-duration: .3s;
+    }
+    .fishing & {
+        height: 140px;
+    }
+    .game-column-slider02 & {
+        height: 140px;
+    }
+}
+
+@keyframes scale {
+    0% {
+        @include transform(scale(0,
+        0));
+    }
+    100% {
+        @include transform(scale(1,
+        1));
+    }
+}
+
+@keyframes list {
+    0% {
+        @include transform(scale(1,
+        1));
+    }
+    0.01% {
+        @include transform(scale(0,
+        0));
+    }
+    100% {
+        @include transform(scale(1,
+        1));
+    }
+}
+
+.game-list-block {
+    position: absolute;
+    // top: 15px;
+    bottom: 15px;
+    left: 130px;
+    display: none;
+    width: 0;
+    height: 0;
+    background: #fff;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2), -3px -3px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    // z-index: 4;
+    z-index: 101;
+    img {
+        display: block;
+        width: 100%;
+        border-radius: 6px 6px 0 0;
+    }
+    &.game-list-expand {
+        .list & {
+            display: block;
+            width: 150px;
+            height: auto;
+        }
+    }
+}
+
+.game-list-pic {
+    .list & {
+        .game-box-grand {
+            display: block;
+            top: 85px;
+        }
+    }
+}
+
+.game-list-title {
+    opacity: 0;
+    font-size: 13px;
+    color: #777;
+    .game-list-expand & {
+        .list & {
+            opacity: 1;
+            margin: 0 10px;
+            padding: 10px 0;
+        }
+    }
+}
+
+.game-list-infor,
+.game-rule-text {
+    padding: 0 10px 10px 10px;
+    font-size: 12px;
+    color: #aaa;
+    line-height: 16px;
+}
+
+.game-rule-text {
+    font-size: 14px;
+}
+
+.game-box-pic {
+    position: relative;
+    height: 111px;
+    border-bottom: 1px solid #D5D9DE;
+    .list & {
+        display: none;
+        position: absolute;
+        height: auto;
+        padding: 0 0 0 10px;
+        border: 0;
+    }
+}
+
+.game-box-tag {
+    position: absolute;
+    min-width: 45px;
+    height: 19px;
+    top: 12px;
+    left: -3px;
+    background: #D5373A;
+    border-radius: 0 3px 3px 0;
+    box-shadow: 2px 2px 0 rgba(102, 0, 0, 0.3);
+    padding: 0 5px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    z-index: 2;
+    .game-list-slider & {
+        background: #43688D;
+        box-shadow: 2px 2px 0 rgba(67, 104, 141, 0.3);
+    }
+    #game-list & {
+        top: -100px;
+    }
+    #game-list.list & {
+        position: relative;
+        top: -3px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .fishing & {
+        background: #43688D;
+    }
+}
+
+.game-box-img {
+    text-align: center;
+    .list & {
+        display: none;
+    }
+}
+
+.game-box-img img {
+    display: block;
+    width: 100%;
+    max-height: 111px;
+    border-radius: 5px 5px 0 0;
+}
+
+.game-box-grand {
+    position: absolute;
+    width: 100%;
+    height: 25px;
+    left: 0;
+    bottom: 0;
+    background: image-url('dialog_overlay_bg.png') repeat left top;
+    .box-grand-icon {
+        float: left;
+        background: image-url('game_minor.png') no-repeat 3px center;
+        width: 43px;
+        height: 25px;
+        padding: 0 0 0 3px;
+    }
+    .box-grand-number {
+        float: right;
+        font-size: 12px;
+        color: #F2B243;
+        line-height: 28px;
+        vertical-align: middle;
+        padding: 0 3px 0 0;
+        text-align: right;
+    }
+    .list & {
+        display: none;
+    }
+}
+
+.game-box-jackpot {
+    @extend .game-box-grand;
+    .box-grand-icon {
+        width: 51px;
+        background: image-url('game_jackpot.png') no-repeat 3px center;
+    }
+}
+
+.game-box-info {
+    position: absolute;
+    width: 152px;
+    top: 110px;
+    height: 45px;
+    line-height: normal;
+    .list & {
+        position: relative;
+        top: 0;
+        width: 280px;
+        float: left;
+        padding: 8px 0 8px 10px;
+        cursor: pointer;
+        // @include MQ(desktop) {
+        //     width: 219px;
+        // }
+    }
+    .fishing & {
+        height: 29px;
+    }
+}
+
+.game-box-title {
+    // padding: 5px 0 0 9px;
+    font-size: 14px;
+    color: #777;
+    // line-height: 16px;
+    line-height: 44px;
+    padding-left: 9px;
+    .list & {
+        line-height: 19px;
+        padding: 0 5px 0 0;
+        display: inline-block;
+    }
+    .game-column-slider & {
+        padding-top: 0;
+        line-height: 45px;
+    }
+    .game-list-slider & {
+        line-height: 28px;
+    }
+}
+
+.game-box-favorite {
+    display: none;
+    @include clearfix;
+    line-height: 16px;
+    padding: 0 0 0 9px;
+    .list & {
+        padding: 0;
+    }
+}
+
+.favorite-number {
+    float: left;
+    font-size: 12px;
+    color: #777;
+    padding: 2px 0 0 0;
+    .list & {
+        color: #aaa;
+        &:before {
+            content: '';
+            display: inline-block;
+            background: image-url('game_icon_favorite.png') no-repeat left top;
+            width: 16px;
+            height: 16px;
+            transform: scale(.65);
+            opacity: 0.7;
+            vertical-align: middle;
+        }
+    }
+}
+
+.favorite-btn {
+    position: absolute;
+    font-size: 14px;
+    color: #777;
+    right: 5px;
+    // bottom: 5px;
+    bottom: 10px;
+    cursor: pointer;
+    z-index: 3;
+    &.on {
+        color: #D5373A;
+    }
+    .list & {
+        color: #aaa;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #aaa;
+        top: 9px;
+        right: 152px;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 29px;
+        &.on {
+            color: #D5373A;
+        }
+    }
+}
+
+.game-box-mask {
+    position: absolute;
+    width: 100%;
+    height: 110px;
+    left: 0;
+    top: 0;
+    background: image-url('dialog_overlay_bg.png') repeat left top;
+    text-align: center;
+    display: none;
+    border-radius: 5px 5px 0 0;
+    z-index: 2;
+    .box-mask-wrap {
+        display: table-cell;
+        vertical-align: middle;
+        button {
+            width: 95px;
+            height: 30px;
+            border-radius: 6px;
+            margin: 2px 0;
+            border: 0;
+            font-size: 14px;
+            color: #fff;
+            background: #43688D;
+            @include transition(all .3s);
+            &.box-btn-intro {
+                background: none;
+                border: 1px solid #F0F0F0;
+            }
+            &.box-btn-rule {
+                display: none;
+            }
+            &.box-btn-enter {
+                margin: 2px 0 28px 0;
+                background: none;
+                border: 1px solid #43688D;
+                &:hover {
+                    border: 1px solid #D5373A;
+                    background: none;
+                }
+            }
+            .list & {
+                background: none;
+                border: 1px solid #43688D;
+                color: #43688D;
+                ;
+                width: 70px;
+                font-size: 13px;
+                &.box-btn-rush {
+                    float: right;
+                    margin-left: 2px;
+                    margin-right: 2px;
+                }
+                &:hover {
+                    color: #fff;
+                    background: #43688D;
+                    border: 0;
+                }
+                &.box-btn-rule {
+                    display: block;
+                    border-color: #aaa;
+                    color: #aaa;
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+                &.box-btn-enter {
+                    margin: 2px 0;
+                }
+            }
+            &.box-btn-info {
+                background: none;
+                margin: 5px 0 0 0;
+                border: 1px solid #fff;
+            }
+            &:hover {
+                background: #D5373A;
+                border: 0;
+            }
+        }
+        i {
+            position: absolute;
+            background: image-url('game_layout_icon.png') no-repeat;
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+            &.btn-icon-flash {
+                background-position: left top;
+                right: 36px;
+                bottom: 7px;
+                &:hover {
+                    background-position: left bottom;
+                }
+                .list & {
+                    display: none;
+                }
+            }
+            &.btn-icon-question {
+                background-position: right top;
+                right: 6px;
+                bottom: 7px;
+                &:hover {
+                    background-position: right bottom;
+                }
+                .list & {
+                    display: none;
+                }
+            }
+        }
+        .list & {
+            float: right;
+            padding: 7px 5px 0 0;
+        }
+    }
+    .list & {
+        position: relative;
+        display: block !important;
+        background: none;
+        height: auto;
+    }
+    .fishing & {
+        height: 111px;
+    }
+}
+
+.game-list-slider {
+    width: 948px;
+    margin: 0 auto;
+    @include clearfix;
+    // @include MQ(desktop) {
+    //     width: 626px;
+    // }
+    .slick-prev {
+        left: -5px;
+        z-index: 2;
+    }
+    .slick-next {
+        right: -5px;
+        left: auto;
+    }
+    .game-box {
+        width: 152px !important;
+        height: 140px;
+        // @include MQ(desktop) {
+        //     width: 151px !important;
+        // }
+    }
+    &.fixed {
+        margin-top: 71px;
+        @include MQ(desktop) {
+            margin-top: 0;
+        }
+    }
+}
+
+.game-list-ad {
+    position: relative;
+    float: left;
+    width: 316px;
+    height: 156px;
+    background: image-url('not-use/game_activity_ad.png') no-repeat 3px top;
+    padding: 0 3px;
+    cursor: pointer;
+    top: 5px;
+    z-index: 4;
+    .list & {
+        display: none;
+    }
+    &.activity-ad {
+        width: auto;
+        padding: 0;
+    }
+}
+
+.list-ad-expand {
+    position: absolute;
+    width: 0;
+    height: 156px;
+    padding: 0;
+    left: 0;
+    top: 0;
+    background: image-url('not-use/game_activity_expand.png') no-repeat left top;
+    z-index: 1;
+    @include transition(all .3s);
+    &.expand {
+        width: 632px;
+        padding: 0 3px;
+        background-position: 3px top;
+    }
+    .activity-ad & {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 632px;
+        padding: 0 3px;
+        background-position: 3px top;
+    }
+}
+
+//GAME-COLLECTION
+.game-collection {
+    width: 960px;
+    left: 50%;
+    margin: 0 0 0 -480px;
+    background: #962F31;
+    z-index: 5;
+    min-width: 700px;
+    @include transition(all .3s);
+    // @include MQ(desktop) {
+    //     width: 100%;
+    //     left: 0;
+    //     margin: 0;
+    // }
+    @include MQ(desktop) {
+        position: absolute !important;
+    }
+}
+
+.game-collection-header {
+    position: relative;
+    border: 1px solid #B7393D;
+    @include clearfix;
+}
+
+.game-collection-btn {
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    width: 64px;
+    height: 32px;
+    margin: 0 0 0 -32px;
+    border-radius: 64px 64px 0 0;
+    background: #962F31;
+    border-left: 1px solid #B7393D;
+    border-right: 1px solid #B7393D;
+    cursor: pointer;
+    overflow: hidden;
+    i {
+        font-size: 26px;
+        font-weight: bold;
+        color: #fff;
+        display: block;
+        text-align: center;
+        line-height: 30px;
+        @include transition(all .3s);
+    }
+    &.turn {
+        i {
+            transform: rotateX(180deg);
+            line-height: 40px;
+        }
+    }
+    &:hover {
+        i {
+            color: #F2B243;
+        }
+    }
+}
+
+.game-collection-nav {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    width: 720px;
+    margin: 0 auto 0 20px;
+    // @include MQ(desktop) {
+    //     width: 520px;
+    // }
+    .slick-arrow {
+        &.slick-prev {
+            background: image-url('icon_arr.png') no-repeat left bottom;
+            width: 8px;
+            height: 12px;
+            left: -13px;
+            &:hover {
+                background-position: right bottom;
+            }
+        }
+        &.slick-next {
+            background-position: left top;
+            left: auto;
+            right: -30px;
+            &:hover {
+                background-position: right top;
+            }
+        }
+    }
+}
+
+.collection-nav-title {
+    font-size: 12px;
+    text-align: center;
+    @include transition(all .3s);
+    a {
+        display: block;
+        padding: 0 14px;
+        color: #fff;
+        &.current,
+        &:hover {
+            color: #F2B243;
+        }
+    }
+}
+
+.game-collection-search {
+    float: right;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: image-url('collection_btn_search.png') no-repeat center #6F020D;
+    border: 0;
+    z-index: 2;
+}
+
+.collection-search-box {
+    position: absolute;
+    border: 0;
+    background: #6F020D;
+    height: 50px;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.collection-search-input {
+    background: none;
+    width: 0;
+    border: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FF9673;
+    height: 50px;
+    transition: width .3s ease;
+    &::placeholder {
+        color: #FF9673;
+    }
+    &.open {
+        width: 170px;
+        padding: 0 14px;
+    }
+}
+
+.game-collection-container {
+    overflow: hidden;
+    height: 0;
+    background: #fff;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    @include transition(all .3s);
+    &.expand {
+        height: 121px;
+        padding: 4px 0 0 0;
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+.game-collection-list {
+    width: 900px;
+    margin: 0 auto;
+    // @include MQ(desktop) {
+    //     width: 756px;
+    // }
+}
+
+.game-collection-box {
+    position: relative;
+    float: left;
+    display: block;
+    width: 122px !important;
+    height: 112px;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #D5D9DE;
+    margin: 0 4px 0 3px;
+    // @include MQ(desktop) {
+    //     margin: 0 2px;
+    // }
+    .game-box-mask {
+        height: 88px;
+    }
+}
+
+.game-collection-pic {
+    position: relative;
+    img {
+        border-radius: 4px 4px 0 0;
+    }
+}
+
+.game-collection-tag {
+    position: absolute;
+    min-width: 45px;
+    height: 19px;
+    top: 12px;
+    left: -3px;
+    background: #43688D;
+    line-height: 19px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    z-index: 1;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 2px 2px 0 rgba(67, 104, 141, 0.3);
+}
+
+.game-collection-img img {
+    border-radius: 4px 4px 0 0;
+}
+
+.game-collection-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #aaa;
+    line-height: 24px;
+    padding: 0 0 0 8px;
+    border-top: 1px solid #D5D9DE;
+    &:hover {
+        color: #878787;
+    }
+}
+
+.slick-prev {
+    width: 29px;
+    height: 29px;
+    background: image-url('game_arr.png') no-repeat left top;
+    text-indent: -3000px;
+    z-index: 1;
+    // .game-collection-list & {
+    //     @include MQ(desktop) {
+    //         left: -5px;
+    //         z-index: 2;
+    //     }
+    // }
+}
+
+.slick-next {
+    @extend .slick-prev;
+    background-position: left bottom;
+    // .game-collection-list & {
+    //     @include MQ(desktop) {
+    //         left: auto;
+    //         right: 0;
+    //     }
+    // }
+}
+
+.not-recent {
+    display: none;
+    text-align: center;
+    line-height: 121px;
+    font-size: 16px;
+    color: #ccc;
+    font-weight: bold;
+}
+
+//GAME_COLUMN
+#game-column {
+    @extend #game-menu;
+}
+
+.game-column-menu {
+    @extend .game-menu-filter;
+    li {
+        float: left;
+        width: 100px;
+        line-height: 36px;
+        text-align: center;
+    }
+}
+
+.game-column-block {
+    padding: 30px 0 0 0;
+}
+
+.game-column-header {
+    @include clearfix;
+}
+
+.game-column-title {
+    float: left;
+    font-size: 18px;
+    color: #777;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 10px;
+    text-shadow: -1px 0 rgba(238, 238, 238, 0.6), 0 1px rgba(238, 238, 238, 0.6), 1px 0 rgba(238, 238, 238, 0.6), 0 -1px rgba(238, 238, 238, 0.6);
+}
+
+.game-column-dot {
+    float: left;
+    width: 100%;
+    height: 26px;
+    background: image-url('column_title_point.png') repeat-x left center;
+}
+
+.game-column-more {
+    position: relative;
+    float: right;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    min-width: 81px;
+    background: #D5373A;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    @include transition (all .3s);
+    a {
+        display: block;
+        color: #fff;
+        padding: 0 16px;
+    }
+    &:hover {
+        background: #B72629;
+    }
+}
+
+.game-column-container {
+    @include clearfix;
+}
+
+.game-column-slider {
+    float: left;
+    width: 632px;
+    // @include MQ(desktop) {
+    //     width: 430px;
+    // }
+}
+
+.game-column-ad {
+    float: left;
+    background: image-url('not-use/game_activity_ad.png') no-repeat left top;
+    width: image-width('not-use/game_activity_ad.png');
+    height: image-height('not-use/game_activity_ad.png');
+    margin: 5px 6px 0 0;
+}
+
+.slick-prev {
+    .game-column-slider & {
+        left: -322px;
+        z-index: 2;
+    }
+    .game-column-slider02 & {
+        left: -6px;
+        z-index: 2;
+    }
+}
+
+.slick-next {
+    .game-column-slider &,
+    .game-column-slider02 & {
+        left: auto;
+        right: -5px;
+    }
+}
+
+//LOADING
+.lds-spinner {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+    margin-left: -32px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFE599;
+    span {
+        position: absolute;
+        top: 56px;
+        left: 0;
+    }
+    // @include MQ(desktop) {
+    //     top: 65px;
+    // }
+    &.other-game {
+        position: relative;
+        top: -10px;
+        width: 61px;
+        height: 61px;
+    }
+}
+
+.lds-spinner div {
+    transform-origin: 32px 32px;
+    animation: lds-spinner 0.8s linear infinite;
+}
+
+.lds-spinner div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 16px;
+    left: 30px;
+    width: 4px;
+    height: 12px;
+    border-radius: 20%;
+    background: #FFE599;
+    border-radius: 6px;
+}
+
+.lds-spinner div.lds-bar1 {
+    transform: rotate(0deg);
+    animation-delay: -0.8s;
+}
+
+.lds-spinner div.lds-bar2 {
+    transform: rotate(45deg);
+    animation-delay: -0.7s;
+}
+
+.lds-spinner div.lds-bar3 {
+    transform: rotate(90deg);
+    animation-delay: -0.6s;
+}
+
+.lds-spinner div.lds-bar4 {
+    transform: rotate(135deg);
+    animation-delay: -0.5s;
+}
+
+.lds-spinner div.lds-bar5 {
+    transform: rotate(180deg);
+    animation-delay: -0.4s;
+}
+
+.lds-spinner div.lds-bar6 {
+    transform: rotate(225deg);
+    animation-delay: -0.3s;
+}
+
+.lds-spinner div.lds-bar7 {
+    transform: rotate(270deg);
+    animation-delay: -0.2s;
+}
+
+.lds-spinner div.lds-bar8 {
+    transform: rotate(315deg);
+    animation-delay: -0.1s;
+}
+
+.lds-spinner div.lds-bar9 {
+    transform: rotate(0deg);
+    animation-delay: 0s;
+}
+
+@keyframes lds-spinner {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+//捕魚
+.fishing-back {
+    float: left;
+    width: 100px;
+    height: 35px;
+    font-size: 14px;
+    background: #97B3CE;
+    color: #fff;
+    border: 1px solid #ddd;
+    @include transition(background-color .3s);
+    &:hover {
+        background: #618AB4;
+    }
+    // @include MQ(desktop) {
+    //     position: relative;
+    //     z-index: 2;
+    // }
+}
+
+.fishing-menu {
+    @include clearfix;
+    position: relative;
+}
+
+.fishing-category {
+    float: left;
+    width: 860px;
+    height: 35px;
+    background: #F0F4F8;
+    border: 1px solid #ddd;
+    border-left: 0;
+    .slick-list {
+        margin: 0 40px 0 30px;
+        // @include MQ(desktop) {
+        //     margin-left: 20px;
+        // }
+    }
+    li {
+        padding: 0 18px;
+        line-height: 35px;
+        text-align: center;
+        font-size: 14px;
+        color: #545454;
+        cursor: pointer;
+        &:hover,
+        &.current {
+            background: #fff;
+        }
+        // @include MQ(desktop) {}
+        // &:focus {
+        //     outline: none;
+        // }
+    }
+    .slick-next,
+    .slick-prev {
+        width: 10px;
+        height: 17px;
+        left: 10px;
+        background: image-url('fishing_arr.png') no-repeat left top;
+        z-index: 2;
+        &:hover {
+            background-position: right top;
+        }
+        // @include MQ(desktop) {
+        //     left: 110px;
+        // }
+    }
+    .slick-next {
+        left: auto;
+        right: 16px;
+        background-position: left bottom;
+        &:hover {
+            background-position: right bottom;
+        }
+    }
+    // @include MQ(desktop) {
+    //     position: absolute;
+    //     width: 100%;
+    //     padding: 0 0 0 120px;
+    //     top: 0;
+    // }
+}
+
+.fishing-submenu {
+    width: 100%;
+    height: 30px;
+    background: #fff;
+    text-align: center;
+    li {
+        display: inline-block;
+        font-size: 14px;
+        a {
+            position: relative;
+            color: #97B3CE;
+            display: block;
+            padding: 0 20px;
+            line-height: 30px;
+            &:hover,
+            &.current {
+                &:before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    height: 3px;
+                    background: #97B3CE;
+                    left: 0;
+                    bottom: 1px;
+                }
+            }
+        }
+    }
+}
+
+.fishing-block {
+    position: relative;
+    min-height: 524px;
+}
+
+.fishing-slider,
+.fishing-odds {
+    .slick-prev,
+    .slick-next {
+        width: 21px;
+        height: 34px;
+        background: url("../image/fishing_btn_arrow.png") no-repeat left top;
+        left: 20px;
+        z-index: 2;
+    }
+    .slick-next {
+        background-position: right top;
+        left: auto;
+        right: 20px;
+    }
+    .slick-dots {
+        width: 300px;
+        left: 50%;
+        margin: 0 0 0 -150px;
+        bottom: 40px;
+        li {
+            width: 10px;
+            height: 10px;
+            button {
+                width: 10px;
+                height: 10px;
+                &:before {
+                    width: 10px;
+                    height: 10px;
+                    background: image-url('fishing_btn_dots.png') no-repeat left bottom;
+                    color: transparent;
+                    opacity: 1;
+                }
+            }
+            &.slick-active {
+                button::before {
+                    background-position: left top;
+                }
+            }
+        }
+    }
+}
+
+.fishing-slider {
+    position: relative;
+    z-index: 1;
+}
+
+.fishing-slider-btn {
+    position: absolute;
+    width: 185px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    right: 16px;
+    bottom: 19px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #8C4600;
+    background: image-url('fishing_btn.png') no-repeat left top;
+    cursor: pointer;
+    border: 0;
+    z-index: 1;
+    &:hover {
+        background-position: left bottom;
+    }
+}
+
+.fishing-video {
+    position: absolute;
+    background: image-url('fishing_video_bg.jpg') no-repeat center top;
+    width: 960px;
+    height: image-height('fishing_video_bg.jpg');
+    padding: 58px 0 0 0;
+    top: 0;
+    z-index: 0;
+}
+
+.fishing-video-wrap {
+    width: 640px;
+    height: 360px;
+    margin: 0 auto;
+}
+
+.fishing-odds {
+    position: absolute;
+    width: 960px;
+    height: 524px;
+    top: 0;
+    z-index: 0;
+}

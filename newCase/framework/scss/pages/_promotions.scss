@@ -1,0 +1,19 @@
+.memberexclusiveii-wrap {}
+
+.memberexclusiveii-main {
+    @include layout-max-width;
+    .memExclusive {}
+    @for $i from 1 through 3 {
+        .event0#{$i} {
+            display: block;
+            max-width: image-width('not-use/event0#{$i}.jpg');
+            height: image-height('not-use/event0#{$i}.jpg');
+            background-image: image-url('not-use/event0#{$i}.jpg');
+            @include trans(background);
+            margin: 0 auto;
+            &:hover {
+                background-image: image-url('not-use/event0#{$i}_over.jpg');
+            }
+        }
+    }
+}

@@ -1,0 +1,922 @@
+.live-wrap {
+    max-width: 960px;
+    background: #131217;
+    margin: 0 auto;
+    &.hallBelow3 {}
+    // 3廳以下
+    &.hall4 {}
+    // 剛好4廳
+}
+
+// 選單
+.live-menu-wrap {
+    background: #232227;
+    padding: 2px 16px;
+    li {
+        width: 14.2%;
+        float: left;
+        a {
+            position: relative;
+            display: block;
+            line-height: 35px;
+            text-align: left;
+            font-size: 16px;
+            color: #AAA;
+            padding-left: 50px;
+            transition: color .3s ease;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 1px;
+                left: 13px;
+                width: 32px;
+                height: 32px;
+                background-image: image-url('live_menu_logo.png');
+                background-repeat: no-repeat;
+                background-position-y: 0;
+            }
+            &:hover, &.current {
+                color: $golden;
+                &::before {
+                    background-position-y: -32px;
+                }
+            }
+            &.livehall-hot {
+                &::before {
+                    background: image-url('hot_icon.png') no-repeat 0 0;
+                }
+            }
+            &.livehall-bb {
+                &::before {
+                    background-position-x: 0;
+                }
+            }
+            &.livehall-evo {
+                &::before {
+                    background-position-x: -32px;
+                }
+            }
+            &.livehall-ag {
+                &::before {
+                    background-position-x: -32px * 2;
+                }
+            }
+            &.livehall-allbet {
+                &::before {
+                    background-position-x: -32px * 3;
+                }
+            }
+            &.livehall-og {
+                &::before {
+                    background-position-x: -32px * 4;
+                }
+            }
+            &.livehall-gd {
+                &::before {
+                    background-position-x: -32px * 5;
+                }
+            }
+            &.livehall-bg {
+                &::before {
+                    background-position-x: -32px * 6;
+                }
+            }
+            &.livehall-ebet {
+                &::before {
+                    background-position-x: -32px * 7;
+                }
+            }
+            &.livehall-xbb {
+                &::before {
+                    background-position-x: -32px * 8;
+                }
+            }
+            &.livehall-mg {
+                &::before {
+                    background-position-x: -32px * 9;
+                }
+            }
+            &.livehall-eg {
+                &::before {
+                    background-position-x: -32px * 10;
+                }
+            }
+            &.livehall-nbb {
+                &::before {
+                    background-position-x: -32px * 11;
+                }
+            }
+            &.livehall-wm {
+                &::before {
+                    background-position-x: -32px * 12;
+                }
+            }
+            &.livehall-ssg {
+                &::before {
+                    background-position-x: -32px * 14;
+                }
+            }
+            &.livehall-ae {
+                &::before {
+                    background-position-x: -32px * 17;
+                }
+            }
+        }
+    }
+    // @include MQ(tablet) {
+    //     li {
+    //         width: 16.666%;
+    //         a {
+    //             line-height: 38px;
+    //             font-size: 14px;
+    //             font-size: 14.5px;
+    //             padding-left: 40px;
+    //             &::before {
+    //                 top: 2px;
+    //                 left: 6%;
+    //             }
+    //         }
+    //     }
+    // }
+    // @include MQ(mobile) {
+    //     display: none;
+    // }
+}
+
+// 主內容
+.live-content {
+    padding-top: 5px;
+    // @include MQ(mobile) {
+    //     padding-top: 0;
+    // }
+}
+
+.live-top {
+    position: relative;
+    height: 439px;
+    padding: 0 191px 0 382px;
+    .hallBelow3 & {
+        height: auto;
+        padding: 0 222px 0 5px;
+    }
+    // @include MQ(tablet) {
+    //     padding-right: 0;
+    //     .hallBelow3 & {
+    //         padding: 0 5px;
+    //     }
+    // }
+    // @media only screen and (max-width: 629px) {
+    //     height: auto;
+    //     padding: 0 5px;
+    // }
+    // @include MQ(mobile) {
+    //     display: none;
+    // }
+}
+
+// BBIN 大窗
+.live-bbin-wrap {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    z-index: 1;
+    display: block;
+    width: 377px;
+    height: 439px;
+    background-image: image-url('live_bbin_bg_m.jpg');
+    background-position: center right;
+    background-repeat: no-repeat;
+    border: 1px solid #4C33A1;
+    .hallBelow3 & {
+        position: static;
+        width: 100%;
+        max-width: 733px;
+        height: 500px;
+        background-image: image-url('live_bbin_bg_l.jpg');
+    }
+    // @include MQ(tablet) {
+    //     .hallBelow3 & {
+    //         max-width: none;
+    //         background-size: cover;
+    //     }
+    // }
+    // @media only screen and (max-width: 629px) {
+    //     position: static;
+    //     width: 100%;
+    //     height: 500px;
+    //     background-image: image-url('live_bbin_bg_l.jpg');
+    //     background-size: cover;
+    // }
+}
+
+.live-bbin-main {
+    position: relative;
+    padding-top: 173px;
+    .hallBelow3 & {
+        padding-top: 0;
+    }
+}
+
+.live-bbin-title {
+    position: absolute;
+    top: 72px;
+    left: 22px;
+    z-index: 1;
+    display: block;
+    line-height: 1;
+    letter-spacing: 3px;
+    font-size: 17px;
+    color: transparent;
+    background: linear-gradient(to bottom, #f6f6f6 24%, #c9c9c9 91%, #afafaf 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    /*&::before {
+        content: '专属游戏';
+    }*/
+    &.active {
+        &::before {
+            content: '规则说明';
+        }
+    }
+    .hallBelow3 & {
+        top: 142px;
+        left: auto;
+        right: 32px;
+        width: 330px;
+    }
+    // @media only screen and (max-width: 629px) {
+    //     top: 142px;
+    //     left: auto;
+    //     right: 32px;
+    //     width: 330px;
+    // }
+}
+
+.live-rule-open,
+.live-rule-back {
+    position: absolute;
+    top: 108px;
+    left: 23px;
+    display: none;
+    width: 33px;
+    height: 33px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    transition: background .3s ease;
+    cursor: pointer;
+    &.active {
+        display: block;
+    }
+    .hallBelow3 & {
+        top: 104px;
+        right: 44px;
+        left: auto;
+        width: 39px;
+        height: 39px;
+    }
+    // @media only screen and (max-width: 629px) {
+    //     top: 104px;
+    //     right: 44px;
+    //     left: auto;
+    //     width: 39px;
+    //     height: 39px;
+    // }
+}
+
+.live-rule-open {
+    background-image: image-url('btn_rule_open.png');
+    &:hover {
+        background-image: image-url('btn_rule_open_over.png');
+    }
+}
+
+.live-rule-back {
+    background-image: image-url('btn_rule_back.png');
+    &:hover {
+        background-image: image-url('btn_rule_back_over.png');
+    }
+}
+
+.bbin-links-wrap {
+    display: none;
+    width: 100%;
+    max-width: 334px;
+    margin: 0 auto;
+    .bbin-block01 {
+        float: right;
+        width: 182px;
+        a[class*="bbin-livehall-"] {
+            position: relative;
+            display: block;
+            width: 182px;
+            height: 72px;
+            text-align: left;
+            font-size: 16px;
+            color: #FFF;
+            margin-bottom: 5px;
+            border: 1px solid #fff;
+            line-height: 72px;
+            padding: 0 0 0 83px;
+            i {
+                position: absolute;
+                left: 18px;
+                top: 50%;
+                display: inline-block;
+                width: 42px;
+                height: 36px;
+                background: image-url('livecasino_icon.png') no-repeat left top;
+                margin-top: -18px;
+                transition: all .3s ease;
+            }
+            &:hover {
+                color: #E1BF4A;
+                border-color: $golden;
+                i {
+                    background-position: left bottom;
+                }
+            }
+            &:nth-child(3n) {
+                margin-bottom: 0;
+            }
+            &.bbin-livehall-40 {
+                i {
+                    background-position-x: -42px * 4;
+                }
+            }
+            &.bbin-livehall-38 {
+                i {
+                    background-position-x: -42px * 3;
+                }
+            }
+            &.bbin-livehall-1 {
+                i {
+                    background-position-x: -42px * 2;
+                }
+            }
+        }
+    }
+    .bbin-block02 {
+        @extend .bbin-block01;
+        width: 146px;
+        margin-right: 6px;
+        a[class*="bbin-livehall-"] {
+            width: 146px;
+            height: 110px;
+            padding: 81px 0 0 0;
+            text-align: center;
+            line-height: 0;
+            border: 0;
+            i {
+                left: 50%;
+                top: 41px;
+                margin-left: -21px;
+            }
+            &.bbin-livehall-99 {
+                background: image-url('asia.png') no-repeat left top;
+                margin-bottom: 6px;
+                i {
+                    background-position-x: 0;
+                }
+            }
+            &.bbin-livehall-7 {
+                background: image-url('europe.png') no-repeat left top;
+                margin-bottom: 0;
+                i {
+                    background-position-x: -42px * 1;
+                }
+            }
+            &:hover {
+                background-position: left bottom;
+            }
+        }
+    }
+    &.active {
+        display: block;
+    }
+    .hallBelow3 & {
+        position: absolute;
+        top: 185px;
+        right: 32px;
+        a[class*="bbin-livehall-"] {
+            background: #221E20;
+            background: rgba(19, 18, 23, .36);
+            border-color: #69617A;
+            border-color: rgba(221, 210, 251, .36);
+            &:hover {
+                background: #292952;
+                border-color: $golden;
+            }
+        }
+    }
+    // @media only screen and (max-width: 629px) {
+    //     position: absolute;
+    //     top: 185px;
+    //     right: 32px;
+    //     a[class*="bbin-livehall-"] {
+    //         background: #221E20;
+    //         background: rgba(19, 18, 23, .36);
+    //         border-color: #69617A;
+    //         border-color: rgba(221, 210, 251, .36);
+    //         transition: none;
+    //         &:hover {
+    //             background: #292952;
+    //             border-color: $golden;
+    //         }
+    //     }
+    // }
+}
+
+.ele-btn-new {
+    display: block;
+    width: 330px;
+    height: 80px;
+    background-image: image-url('lang/zh-cn/new_live_bb_l.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    float: left;
+    &:hover {
+        background-position: 0 -80px;
+    }
+    &.medium {
+        width: 215px;
+        background-image: image-url('lang/zh-cn/new_live_bb_m.png');
+    }
+    &.small {
+        width: 100px;
+        background-image: image-url('lang/zh-cn/new_live_bb_s.png');
+    }
+}
+
+.rule-text-wrap {
+    display: none;
+    max-width: 350px;
+    height: 34px * 8;
+    margin: 0 auto;
+    overflow-y: scroll;
+    // -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 4px;
+        background-color: transparent;
+        position: relative
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, .15);
+    }
+    ul {
+        display: block;
+        max-width: 330px;
+        padding-left: 10px;
+    }
+    li {
+        width: 33.33%;
+        float: left;
+        a {
+            position: relative;
+            display: block;
+            line-height: 16px;
+            font-size: 14px;
+            color: #e7e4f0;
+            @include text-truncate;
+            margin-bottom: 18px;
+            padding: 0 4px 0 10px;
+            transition: all .3s ease;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+                display: block;
+                width: 2px;
+                height: 100%;
+                background: #e7e4f0;
+                transition: all .3s ease;
+            }
+            &:hover {
+                color: $golden;
+                &::before {
+                    width: 3px;
+                    background: $golden;
+                }
+            }
+        }
+    }
+    &.active {
+        display: block;
+    }
+    .hallBelow3 & {
+        position: absolute;
+        top: 185px;
+        right: 32px;
+    }
+    // @media only screen and (max-width: 629px) {
+    //     position: absolute;
+    //     top: 185px;
+    //     right: 32px;
+    // }
+}
+
+// 強力廠商
+.livehall-favor-wrap {
+    padding: 0 5px;
+    li {
+        width: 100%;
+        height: 143px;
+        margin-bottom: 5px;
+        background-position: 0 0;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        transition: all .3s ease;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        a {
+            position: relative;
+            display: block;
+            height: 100%;
+            border-width: 1px;
+            border-style: solid;
+            border-color: #4C33A1;
+            transition: all .3s ease;
+            span {
+                position: absolute;
+                width: 139px;
+                top: 50px;
+                left: 6px;
+                text-align: center;
+                display: block;
+                line-height: 43px;
+                font-size: 20px;
+                color: #FFF;
+                opacity: 0;
+                transition: all .3s ease;
+            }
+            &:hover {
+                border-width: 2px;
+                border-color: #D8B849;
+                span {
+                    opacity: 1;
+                }
+            }
+        }
+        &.livehall-evo {
+            background-image: image-url('live_hall_evo_l.jpg');
+            &:hover {
+                background-image: image-url('live_hall_evo_l_over.jpg');
+            }
+        }
+        &.livehall-ag {
+            background-image: image-url('live_hall_ag_l.jpg');
+            &:hover {
+                background-image: image-url('live_hall_ag_l_over.jpg');
+            }
+        }
+        &.livehall-allbet {
+            background-image: image-url('live_hall_allbet_l.jpg');
+            &:hover {
+                background-image: image-url('live_hall_allbet_l_over.jpg');
+            }
+        }
+        &.livehall-og {
+            background-image: image-url('live_hall_og_l.jpg');
+            &:hover {
+                background-image: image-url('live_hall_og_l_over.jpg');
+            }
+        }
+        &.livehall-gd {
+            background-image: image-url('live_hall_gd_l.jpg');
+            &:hover {
+                background-image: image-url('live_hall_gd_l_over.jpg');
+            }
+        }
+        &.livehall-bg {
+            background-image: image-url('live_hall_bg_l.jpg');
+            &:hover {
+                background-image: image-url('live_hall_bg_l_over.jpg');
+            }
+        }
+        &.livehall-ebet {
+            background-image: image-url('live_hall_ebet_l.jpg');
+            &:hover {
+                background-image: image-url('live_hall_ebet_l_over.jpg');
+            }
+        }
+        &.livehall-mg {
+            background-image: image-url('live_hall_mg_l.jpg');
+            &:hover {
+                background-image: image-url('live_hall_mg_l_over.jpg');
+            }
+        }
+        &.livehall-bbblockchain {
+            background-image: image-url('live_hall_bbblockchain_l.jpg');
+            &:hover {
+                background-image: image-url('live_hall_bbblockchain_l_over.jpg');
+            }
+        }
+        &.livehall-xbb {
+            background-image: image-url('live_hall_xbb_l.jpg');
+            &:hover {
+                background-image: image-url('live_hall_xbb_l_over.jpg'); 
+            }
+        }
+        &.livehall-nbbblockchain {
+            background-image: image-url('live_hall_nbb_l.jpg');
+            &:hover {
+                background-image: image-url('live_hall_nbb_l_over.jpg'); 
+            }
+        }
+    }
+    // @media only screen and (max-width: 629px) {
+    //     display: none;
+    // }
+}
+
+// 列表
+.livehall-row {
+    background: image-url('livehall_bg.png') center bottom no-repeat;
+    background-size: auto 242px;
+    padding: 5px 2.5px 0 2.5px;
+    li {
+        width: 20%;
+        padding: 0 2.5px 5px;
+        float: left;
+        a {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: 100% auto;
+            overflow: hidden;
+            transition: background .3s ease;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-width: 1px;
+                border-style: solid;
+                border-color: #211F26;
+                box-sizing: border-box;
+            }
+            img {
+                display: block;
+                width: 100%;
+                opacity: 0;
+            }
+            span {
+                position: absolute;
+                top: 63.15%;
+                left: 0;
+                z-index: 1;
+                display: block;
+                width: 100%;
+                line-height: 1;
+                text-align: center;
+                font-size: 17px;
+                color: #EDEAF0;
+                padding: 0 12px;
+            }
+            &:hover {
+                &::before {
+                    border-width: 2px;
+                    border-color: $golden;
+                }
+                img {
+                    opacity: 0;
+                }
+                span {
+                    top: 16px;
+                    font-size: 16px;
+                    text-align: left;
+                }
+            }
+        }
+        &.bb-hall,
+        &.favor-hall {
+            display: none;
+        }
+        &.livehall-bb {
+            a {
+                background-image: image-url('live_hall_bb_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_bb_m_over.jpg');
+                }
+            }
+        }
+        &.livehall-ab {
+            a {
+                background-image: image-url('live_hall_ab_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_ab_m_over.jpg');
+                }
+            }
+        }
+        &.livehall-evo {
+            a {
+                background-image: image-url('live_hall_evo_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_evo_m_over.jpg');
+                }
+            }
+        }
+        &.livehall-ag {
+            a {
+                background-image: image-url('live_hall_ag_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_ag_m_over.jpg');
+                }
+            }
+        }
+        &.livehall-allbet {
+            a {
+                background-image: image-url('live_hall_allbet_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_allbet_m_over.jpg');
+                }
+            }
+        }
+        &.livehall-og {
+            a {
+                background-image: image-url('live_hall_og_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_og_m_over.jpg');
+                }
+            }
+        }
+        &.livehall-gd {
+            a {
+                background-image: image-url('live_hall_gd_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_gd_m_over.jpg');
+                }
+            }
+        }
+        &.livehall-bg {
+            a {
+                background-image: image-url('live_hall_bg_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_bg_m_over.jpg');
+                }
+            }
+        }
+        &.livehall-ebet {
+            a {
+                background-image: image-url('live_hall_ebet_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_ebet_m_over.jpg');
+                }
+            }
+        }
+        &.livehall-nbb {
+            a {
+                background-image: image-url('live_hall_nbb_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_nbb_m_over.jpg');
+                }
+            }
+        }
+        &.livehall-mg {
+            a {
+                background-image: image-url('live_hall_mg_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_mg_m_over.jpg');
+                }
+            }
+        }
+        &.livehall-eg {
+            a {
+                background-image: image-url('live_hall_eg_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_eg_m_over.jpg');
+                }
+            }
+        }
+        &.livehall-wm {
+            a {
+                background-image: image-url('live_hall_wm_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_wm_m_over.jpg');
+                }
+            }
+        }
+        &.livehall-ssg {
+            a {
+                background-image: image-url('live_hall_ssg_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_ssg_m_over.jpg');
+                }
+            }
+        }
+        &.livehall-ae {
+            a {
+                background-image: image-url('live_hall_ae_m.jpg');
+                &:hover {
+                    background-image: image-url('live_hall_ae_m_over.jpg');
+                }
+            }
+        }
+    }
+    .hallBelow3 & {
+        min-height: 0;
+        li {
+            width: 50%;
+            a {
+                &::before {
+                    border-color: #4C33A1;
+                }
+                span {
+                    display: none;
+                }
+                &:hover {
+                    &::before {
+                        border-color: $golden;
+                    }
+                    span {
+                        top: 50%;
+                        display: block;
+                        line-height: 1;
+                        font-size: 20px;
+                        margin-top: -8px;
+                        padding-left: 56px;
+                    }
+                }
+            }
+            &.livehall-bb {
+                a {
+                    background-image: image-url('live_hall_bb_l.jpg');
+                    &:hover {
+                        background-image: image-url('live_hall_bb_l_over.jpg');
+                    }
+                }
+            }
+            &.livehall-evo {
+                a {
+                    background-image: image-url('live_hall_evo_l.jpg');
+                    &:hover {
+                        background-image: image-url('live_hall_evo_l_over.jpg');
+                    }
+                }
+            }
+            &.livehall-ag {
+                a {
+                    background-image: image-url('live_hall_ag_l.jpg');
+                    &:hover {
+                        background-image: image-url('live_hall_ag_l_over.jpg');
+                    }
+                }
+            }
+            &.livehall-allbet {
+                a {
+                    background-image: image-url('live_hall_allbet_l.jpg');
+                    &:hover {
+                        background-image: image-url('live_hall_allbet_l_over.jpg');
+                    }
+                }
+            }
+            &.livehall-og {
+                a {
+                    background-image: image-url('live_hall_og_l.jpg');
+                    &:hover {
+                        background-image: image-url('live_hall_og_l_over.jpg');
+                    }
+                }
+            }
+            &.livehall-gd {
+                a {
+                    background-image: image-url('live_hall_gd_l.jpg');
+                    &:hover {
+                        background-image: image-url('live_hall_gd_l_over.jpg');
+                    }
+                }
+            }
+            &.livehall-bg {
+                a {
+                    background-image: image-url('live_hall_bg_l.jpg');
+                    &:hover {
+                        background-image: image-url('live_hall_bg_l_over.jpg');
+                    }
+                }
+            }
+        }
+    }
+    .hall4 & {
+        min-height: 195px;
+    }
+}
+
+.ele-slideshow-control-wrap {
+    width: auto;
+    padding: 0 6px;
+    line-height: 28px;
+    background: image-url('bg_slider_ctrl.png') 0 0 repeat;
+    border-radius: 6px;
+}

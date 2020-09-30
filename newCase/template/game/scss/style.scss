@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+//COMPASS
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+
+// 基本設定 
+@import "base/grid";
+@import "base/var";
+@import "base/functions";
+@import "base/mixins";
+
+
+// 頁面
+@import "page/game";

@@ -1,0 +1,38 @@
+// 變數
+// --------------------------------------------------
+
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+//** Background color for `<body>`.
+$body-bg       : #eee !default;
+//** Global text color on `<body>`.
+$text-color    : #222 !default;
+//** Global textual link color.
+$link-color    : #DDD !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color: colors(white) !default;
+
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, and more.
+$font-family-base: STHeiti, "Microsoft YaHei", "微软雅黑", "SimSun", "宋体", arial;
+$font-size-base: 12px !default;
+$line-height-base: normal !default;
+
+
+//頁面寬度
+$container-width: 960px; //主要置中區塊寬度
+$grid-gutter-width: 0; //主要置中區塊兩邊空隙
+
+//輪播圖
+$top-slider: true;
+$slider-width-m: 710px;
+$slider-height-m: 200px;
+$slider-width-t: 550px;
+$slider-height-t: 155px;
+$slider-width-s: 518px;
+$slider-height-s: 146px;

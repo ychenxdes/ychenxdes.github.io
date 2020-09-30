@@ -1,0 +1,21 @@
+// media queries
+$desktop: 960px;
+// $custom: 800px;
+// $tablet: 768px;
+
+@mixin MQ($canvas) {
+	@if $canvas == desktop {
+		@media only screen and (max-width: $desktop) { @content; }
+	}
+	// @else if $canvas == custom {
+	// 	@media only screen and (max-width: $custom) { @content; }
+	// }
+	// @else if $canvas == tablet {
+	// 	@media only screen and (max-width: $tablet) { @content; }
+	// }
+}
+
+//模板
+@include MQ(desktop) {}
+// @include MQ(custom) {}
+// @include MQ(tablet) {}

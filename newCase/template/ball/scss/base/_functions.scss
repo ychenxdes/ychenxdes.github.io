@@ -1,0 +1,61 @@
+.ele-slideshow-wrap {
+    position: relative;
+    width: 100%;
+    height: 172px;
+    ul {
+        position: relative;
+        height: 100%;
+        li {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            a {
+                display: block;
+                font-size: 0;
+                height: 100%;
+                background-position: center top;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}
+.ele-slideshow-scroll {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+// 圓點控制項的框架
+.ele-slideshow-control-wrap {
+    position: absolute;
+    width: auto;
+    height: 26px;
+    line-height: 26px;
+    bottom: 8px;
+    right: 8px;
+    z-index: 2;
+    background: #000;
+    opacity: 0.35;
+    border-radius: 3px;
+    padding: 0 6px;
+}
+// 圓點控制項的按鈕風格
+.ele-slideshow-nav {
+    >a {
+        display: inline-block;
+        vertical-align: middle;
+        width: 8px;
+        height: 8px;
+        background: #fff;
+        margin: 0 4px;
+        opacity: 0.4;
+        border-radius: 50%;
+        &.active {
+            opacity: 1;
+        }
+    }
+}

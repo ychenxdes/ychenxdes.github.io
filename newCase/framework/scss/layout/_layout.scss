@@ -1,0 +1,141 @@
+// 清除浮動
+.clearfix {
+    @include clearfix;
+}
+
+// 全站設定
+html {
+    height: 100%;
+}
+
+body {
+    min-width: 1024px;
+    min-height: 100%;
+}
+
+#mainBody {
+    width: 100%;
+    min-width: 1024px;
+}
+
+// Header
+#page-header {
+}
+
+.header-main {
+    position: relative;
+    @include layout-max-width;
+}
+.header-wrap {
+    @include layout-max-width;
+    background: #eee;
+}
+
+.header-nav {
+    @include layout-max-width;
+}
+
+// Logo
+.logo {
+    display: inline-block;
+    a {
+        display: block;
+        @include bg("logo.png");
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+// 最新消息
+.news-wrap {
+    position: relative;
+    @include layout-max-width;
+    font-size: 12px;
+    color: #fff;
+    padding-left: 100px;
+}
+
+.news-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 32px;
+    background: image-url("lang/zh-cn/news_bg.png") center no-repeat;
+}
+
+.news-item {
+    marquee {
+        display: block;
+        line-height: 32px;
+        white-space: nowrap;
+        overflow: hidden;
+        a {
+            color: #000;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+// Footer
+#page-footer {
+    color: #fff;
+    background: #333;
+}
+
+.footer-main {
+    @include layout-max-width;
+}
+
+.article-menu {
+    display: inline-block;
+    li {
+        display: inline-block;
+        a {
+            color: #fff;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.copyright {
+}
+
+.footer-info {
+}
+
+// 內頁
+.page-main {
+    position: relative;
+    // @include layout-max-width;
+    margin: 0 auto;
+    .at1 & {
+        @include layout-max-width;
+    }
+}
+
+.page-title {
+    img {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .at1 & {
+    }
+    .memberexclusiveii & {
+    }
+    .ball & {
+    }
+    .livetop & {
+    }
+    .game & {
+    }
+    .ltlottery & {
+    }
+    .card & {
+    }
+}

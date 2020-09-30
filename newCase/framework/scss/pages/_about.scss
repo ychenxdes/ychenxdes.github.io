@@ -1,0 +1,49 @@
+//  文案頁側選單
+.page-sidebar {
+    position: relative;
+    width: 320px;
+    background: #333;
+    float: left;
+}
+
+.sidemenu {
+    li {
+        display: block;
+        background: image-url('sidebar_line.jpg') bottom repeat-x;
+        padding-bottom: 2px;
+        a {
+            display: block;
+            color: #FFF;
+            &.active,
+            &:hover {
+                background: image-url('sidebar_over.jpg') repeat;
+            }
+        }
+    }
+}
+
+.sidemenu-header {}
+
+.sidemenu-footer {}
+
+
+// 文案右側內容
+.page-right {
+    position: relative;
+    width: 680px;
+    float: right;   
+}
+
+.page-article {
+    text-align: justify;
+}
+
+.case-article-title {
+    font-weight: bold;
+}
+
+.case-article-content {
+    p {
+        margin-top: 20px;
+    }
+}

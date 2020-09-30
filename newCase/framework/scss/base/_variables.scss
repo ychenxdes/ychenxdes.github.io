@@ -1,0 +1,52 @@
+//====== 開發者模式 = 1; 非開發者模式 = 0
+//$developer: 1;
+
+//====== 導覽列下拉子選單
+$subnav-type: 2;  											// 1 = 舊款; 2 = 新款 
+$subnav-kind: 4;  											// 1 = 黑色; 2 = 灰色; 3 = 淺灰色; 4 = 白色
+$subnav-border: transparent;								// 下拉選單的邊框顏色，不能使用透明色彩
+$subnav-hover: #F00;										// 下拉選單連結hover色
+
+//====== 語系種類
+$lang-kind: Flag; 											//false = 不使用; Flag = 使用 inline 國旗; Dropmenu = 下拉式; popupFlag = 使用 popup 國旗
+$lang-img: 1; 												// 1 = 長方形; 2 = 圓形（目前使用 Flag、Dropmenu 才需設定）
+$lang-arrow: 1; 											// 1 = 白; 2 = 黑（目前使用 Dropmenu 才需設定）
+
+//====== 密碼顯示
+$login-pwd-icon: 7;											// 1 = 黑色; 2 = 藍色; 3 = 咖啡色; 4 = 金色; 5 = 綠色; 6 = 深灰色; 7 = 淺灰色; 8 = 紫色; 9 = 紅色; 10 = 白色; 11 = 黃色
+
+//====== HEADER固定
+$header: true;  											//true = 固定; false = 不固定; 
+
+//====== 首頁輪播圖
+$first-slider: true; 										//true = 使用; false = 不使用;
+$first-height: image-height('not-use/slider01.jpg'); 		//圖片高度 = 區塊高度;
+
+//====== 首頁遊戲圖
+$first-game-lang: true; 									//true = 使用; false = 不使用;
+$first-game-format: jpg; 									//遊戲圖圖片格式（png、jpg...）
+$first-game-width: image-width('lang/zh-cn/game01.jpg'); 	//圖片寬度 = 區塊寬度;
+$first-game-height: image-height('lang/zh-cn/game01.jpg'); 	//圖片高度 = 區塊高度;
+
+// 目前語系資料夾
+$lang: 'lang/zh-cn/';
+
+// 主風格或常用的配色，自行修改
+$black: #000 !default;
+
+// 基本顏色設定
+$body-bg: #F2F2F2;
+$text-color: #262626;
+$link-color: #000;
+$link-hover-color: #FFF !default;
+
+// 基本文字設定
+//## Font, line-height, and color for body text, and more.
+$font-family-base: arial,
+STHeiti,
+"Microsoft YaHei",
+"微软雅黑",
+"SimSun",
+"宋体" !default;
+$font-size-base: 16px !default;
+$line-height-base: 1.8 !default;
